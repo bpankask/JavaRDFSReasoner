@@ -1,0 +1,21 @@
+Rule rdfs9 concluded (xfiTBv/7EzOcCq2QMyeK6Q== rdf:type rdfs:Resource) <-
+    Fact (rdf:XMLLiteral rdfs:subClassOf rdfs:Resource)
+    Rule rdf2 concluded (xfiTBv/7EzOcCq2QMyeK6Q== rdf:type rdf:XMLLiteral) <-
+        Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdf2 concluded (xfiTBv/7EzOcCq2QMyeK6Q== rdf:type rdf:XMLLiteral) <-
+    Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdfs1&lg concluded (xfiTBv/7EzOcCq2QMyeK6Q== rdf:type rdfs:Literal) <-
+    Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdfs9 concluded (<http://www.example.com/ex/name> rdf:type rdfs:Resource) <-
+    Fact (rdf:Property rdfs:subClassOf rdfs:Resource)
+    Rule rdf1 concluded (<http://www.example.com/ex/name> rdf:type rdf:Property) <-
+        Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdfs6 concluded (<http://www.example.com/ex/name> rdfs:subPropertyOf <http://www.example.com/ex/name>) <-
+    Rule rdf1 concluded (<http://www.example.com/ex/name> rdf:type rdf:Property) <-
+        Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdf1 concluded (<http://www.example.com/ex/name> rdf:type rdf:Property) <-
+    Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdfs4a concluded (<http://www.example.com/ex/person> rdf:type rdfs:Resource) <-
+    Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
+Rule rdfs1&lg concluded (<http://www.example.com/ex/person> <http://www.example.com/ex/name> xfiTBv/7EzOcCq2QMyeK6Q==) <-
+    Fact (<http://www.example.com/ex/person> <http://www.example.com/ex/name> 'Brayden'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral)
