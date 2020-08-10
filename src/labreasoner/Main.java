@@ -53,12 +53,12 @@ public class Main {
 	public static void main(String[] args) throws Exception{
 		
 		//performance checking
-		final long startTime = System.nanoTime();
+	//	final long startTime = System.nanoTime();
 		
 		//input file to be reasoned on
 		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\geoLAltered.ttl";
 		//text file containing rules and axioms
-		String ruleFile = "Rules.txt";
+		String ruleFile = "trace.txt";
 		//output file used to trace triples that were added during reasoning
 		String traceFileName = "trace.txt";
 		//output file to print original ontology if desired
@@ -72,20 +72,20 @@ public class Main {
 		*/
 		
 		//create empty ont model
-    	OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+    //	OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
     	
     	//reads in the ontology at specified location
-    	ontModel.read(ontologyFile);
+    // 	ontModel.read(ontologyFile);
     	
     	//write original ontology to a file converting it to turtle syntax
-    	PrintWriter originalOut = new PrintWriter(originalOntologyPrint);    
-    	ontModel.write(originalOut, "TURTLE");
+    //	PrintWriter originalOut = new PrintWriter(originalOntologyPrint);    
+    //	ontModel.write(originalOut, "TURTLE");
     	
     	//writes original ontology to console *only useful for small files*
     	//ontModel.write(System.out,"TURTLE");   
     	
     	//reason over and trace results
-    	reasonAndTrace(ontModel,ruleFile,traceFileName, reasonedOntology);
+    //	reasonAndTrace(ontModel,ruleFile,traceFileName, reasonedOntology);
     	
     	//parse trace file and format triples into newList
     	//List<List> newList = parseTraceFile(op, traceFileName);
@@ -94,11 +94,41 @@ public class Main {
     	//writeToJson(ontModel, op, ow, newList);
     		
     	//performance checking
-    	final long duration = TimeUnit.SECONDS.convert(System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
-    	System.out.println(duration + " seconds run time.");
+    //	final long duration = TimeUnit.SECONDS.convert(System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
+    //	System.out.println(duration + " seconds run time.");
 		 
 		
+		test(ruleFile);
+		
 	}//end main
+	
+	public static void test(String ruleFile) {
+		
+		Model base = ModelFactory.createDefaultModel();
+
+		String uri = "http://somewhere/";
+
+		Resource u = base.createResource("u");
+		
+		Literal lit = base.createTypedLiteral(uri + "a literal");
+		Literal lit2 = base.createTypedLiteral(25);
+		
+		Property pA = base.createProperty(uri);
+		Property pType = base.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+		
+		base.add(u, pA, lit);
+		
+		//load rules
+    	List<Rule> rules = Rule.rulesFromURL(ruleFile);
+    	//creates reasoner with custom rules and enables tracing
+    	Reasoner reasoner = new GenericRuleReasoner(rules);
+    	
+    	InfModel inf = ModelFactory.createInfModel(reasoner, base);
+    	
+    	inf.write(System.out,"TURTLE");
+
+		
+	}
 	 
 	/**
 	 * Method to create custom reasoner reason over ontology and record the trace of every rule producing a new triple
