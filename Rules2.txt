@@ -1,0 +1,35 @@
+[rdf1: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
+
+[rdfs2: (?a rdfs:domain ?x), (?u ?a ?y) -> (?u rdf:type ?x)]
+
+[rdfs3: (?a rdfs:range ?x), ( ?u ?a ?v) -> ( ?v rdf:type ?x)]
+
+[rdfs4a: (?u ?a ?x) -> (?u rdf:type rdfs:Resource)]
+
+[rdfs4b: (?u ?a ?v) -> ( ?v rdf:type rdfs:Resource)]
+
+[rdfs5: (?u rdfs:subPropertyOf ?v), (?v rdfs:subPropertyOf ?x) -> (?u rdfs:subPropertyOf ?x)]
+
+[rdfs6: (?u rdf:type rdf:Property) -> (?u rdfs:subPropertyOf ?u)]
+
+[rdfs7: (?a rdfs:subPropertyOf ?b), (?u ?a ?y) -> (?u ?b ?y)]
+
+[rdfs8: (?u rdf:type rdfs:Class) -> (?u rdfs:subClassOf rdfs:Resource)]
+
+[rdfs9: (?u rdfs:subClassOf ?x), (?v rdf:type ?u) -> (?v rdf:type ?x)]
+
+[rdfs10: (?u rdf:type rdfs:Class) -> (?u rdfs:subClassOf ?u)]
+
+[rdfs11: (?u rdfs:subClassOf ?v), (?v rdfs:subClassOf ?x) -> (?u rdfs:subClassOf ?x)]
+
+[rdfs12: (?u rdf:type rdfs:ContainerMembershipProperty) -> (?u rdfs:subPropertyOf rdfs:member)]
+
+[rdfs13: (?u rdf:type rdfs:Datatype) -> (?u rdfs:subClassOf rdfs:Literal)]
+
+//[test: (?u, ?a, ?b), isBNode(?b) -> (?b rdf:type rdf:Property)]
+
+[gl&rdfs6: (?u ?a ?l), isLiteral(?l), makeSkolem(?b, ?u, ?a, ?l), (?b rdf:type rdf:Property) -> (?b rdfs:subPropertyOf ?b), (?b rdfs:subPropertyOf ?l)]
+
+//[test2: (?u, ?a, ?b), isBNode(?b) -> (?b rdf:type rdfs:Class)]
+
+[gl&rdfs10: (?u ?a ?l), isLiteral(?l), makeSkolem(?b, ?u, ?a, ?l), (?b rdf:type rdfs:Class) -> (?b rdfs:subClassOf ?b), (?b rdfs:subClassOf ?l)]
