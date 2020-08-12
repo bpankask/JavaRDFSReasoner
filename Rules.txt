@@ -1,4 +1,4 @@
-//All rules taken from official w3c website -- https://www.w3.org/TR/rdf-mt/#rules.
+//All rules taken from official w3c website -- https://www.w3.org/TR/rdf11-mt/#entailment-rules-informative.
 
 //-----------------------------RDF axiomatic triples--------------------------------
 -> (rdf:type rdf:type rdf:Property) .
@@ -59,8 +59,8 @@
 
 //-----------------------------RDF/Simple Entailment Rules------------------------------
 //[rdfD1Altered: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
-[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
 //[rdfD1Altered: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
 [rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
 
 [rdfD2: (?u ?a ?y) -> (?a rdf:type rdf:Property)]

@@ -1,6 +1,6 @@
 Notes on Rules and Rules.txt file:
  	* GrdfD1 is implemented but has only been lightly tested.  Technically, to turn this rule on the container membership axioms would also have to be altered to add the axioms for rdf:_1 if no others
- 		were added.
+ 		were added.  Also the class GrdfD1.java will need to be registered in the Main.java class.
 
 Order in which rules are activated:
 	* The Apache Jena documentation says that there is no way to guarantee the order in which rules fire.  While this is true for rules in the same rule file you can split the rules up into different 

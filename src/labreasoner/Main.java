@@ -2,8 +2,8 @@
  * Creator: Brayden Pankaskie
  * 	 Email: bpankask@ksu.edu
  * 
- * Semantic Reasoner which accepts ontologies in various forms and creates a graph which is a full rdfs entailment of the original.
- * Note that not all classes in this project are used for this purpose and only the main and reasonAndTrace methods have been fully completed.
+ * Semantic Reasoner which accepts ontologies in various forms and creates a graph which is an rdfs entailment of the original.
+ * Note that not all classes in this project are used for this purpose and only the main and reasonAndTrace methods have been fully completed thus far.
  */
 package labreasoner;
 
@@ -56,7 +56,7 @@ public class Main {
 		final long startTime = System.nanoTime();
 		
 		//input file to be reasoned on
-		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\geoL.ttl";
+		String ontologyFile = "";
 		//text file containing rules and axioms
 		String ruleFile = "Rules.txt";
 		//output file used to trace triples that were added during reasoning
@@ -99,7 +99,7 @@ public class Main {
 	}//end main
 	 
 	/**
-	 * Method to create custom reasoner reason over ontology and record the trace of every rule producing a new triple
+	 * Method to create custom reasoner, reason over ontology, and record the trace of every rule producing a new triple
 	 * @param ontModel
 	 * @param ruleFile
 	 * @param traceFileName
