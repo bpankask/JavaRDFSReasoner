@@ -1,11 +1,18 @@
 Rule rdfs4a concluded (rdfs:domain rdf:type rdfs:Resource) <-
     Rule rdfD2 concluded (rdfs:domain rdf:type rdf:Property) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+        Fact (rdfs:seeAlso rdfs:domain rdfs:Resource)
 Rule rdfs6 concluded (rdfs:domain rdfs:subPropertyOf rdfs:domain) <-
     Rule rdfD2 concluded (rdfs:domain rdf:type rdf:Property) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+        Fact (rdfs:seeAlso rdfs:domain rdfs:Resource)
 Rule rdfD2 concluded (rdfs:domain rdf:type rdf:Property) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (rdfs:seeAlso rdfs:domain rdfs:Resource)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/fish/swordfish> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/fish/swordfish> <http://www.some-fictitious-zoo.com/rdf#name> 'Swordfish')
+Rule rdfs9 concluded (sgywurom+jZpNjzpCX+J/g== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (sgywurom+jZpNjzpCX+J/g== rdf:type xsd:string)
+Rule rdfs4b concluded (sgywurom+jZpNjzpCX+J/g== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/polarbear> <http://www.some-fictitious-zoo.com/rdf#name> sgywurom+jZpNjzpCX+J/g==)
 Rule rdfs6 concluded (rdfs:comment rdfs:subPropertyOf rdfs:comment) <-
     Rule rdfs2 concluded (rdfs:comment rdf:type rdf:Property) <-
         Fact (rdfs:range rdfs:domain rdf:Property)
@@ -15,26 +22,51 @@ Rule rdfs2 concluded (rdfs:comment rdf:type rdf:Property) <-
     Fact (rdfs:comment rdfs:range rdfs:Literal)
 Rule rdfs4a concluded (rdfs:comment rdf:type rdfs:Resource) <-
     Fact (rdfs:comment rdfs:range rdfs:Literal)
-Rule rdfs9 concluded (l7qy1TqpzCNEl8zuGU9ULw== rdf:type rdfs:Resource) <-
-    Rule rdfs11 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
-        Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-        Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-            Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-                Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-    Fact (l7qy1TqpzCNEl8zuGU9ULw== rdf:type rdf:langString)
-Rule rdfs9 concluded (l7qy1TqpzCNEl8zuGU9ULw== rdf:type rdfs:Literal) <-
+Rule rdfs9 concluded (tsEEqxUxDO7IInd9NZaIfw== rdf:type rdfs:Literal) <-
     Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-    Fact (l7qy1TqpzCNEl8zuGU9ULw== rdf:type rdf:langString)
-Rule rdfs9 concluded (dI84DwRV79dcS6qpuPKmVw== rdf:type rdfs:Literal) <-
+    Fact (tsEEqxUxDO7IInd9NZaIfw== rdf:type rdf:langString)
+Rule rdfs4b concluded (tsEEqxUxDO7IInd9NZaIfw== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#specimens> tsEEqxUxDO7IInd9NZaIfw==)
+Rule rdfs9 concluded (<http://www.some-fictitious-zoo.com/birds> rdf:type rdfs:Container) <-
+    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Fact (<http://www.some-fictitious-zoo.com/birds> rdf:type rdf:Seq)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/birds> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_2 <http://www.some-fictitious-zoo.com/birds>)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/rdf#specimens> rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#specimens> rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#specimens> '4'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs6 concluded (<http://www.some-fictitious-zoo.com/rdf#specimens> rdfs:subPropertyOf <http://www.some-fictitious-zoo.com/rdf#specimens>) <-
+    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#specimens> rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#specimens> '4'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#specimens> rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#specimens> '4'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs4a concluded (rdf:_6 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_6 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_6 <http://www.some-fictitious-zoo.com/mammals/aardvark>)
+Rule rdfs6 concluded (rdf:_6 rdfs:subPropertyOf rdf:_6) <-
+    Rule rdfD2 concluded (rdf:_6 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_6 <http://www.some-fictitious-zoo.com/mammals/aardvark>)
+Rule rdfD2 concluded (rdf:_6 rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_6 <http://www.some-fictitious-zoo.com/mammals/aardvark>)
+Rule rdfs9 concluded (CL1EsK7zsx8VjQ/mzV8OBA== rdf:type rdfs:Literal) <-
     Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-    Fact (dI84DwRV79dcS6qpuPKmVw== rdf:type rdf:langString)
-Rule rdfs4b concluded (dI84DwRV79dcS6qpuPKmVw== rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#species> dI84DwRV79dcS6qpuPKmVw==)
+    Fact (CL1EsK7zsx8VjQ/mzV8OBA== rdf:type rdf:langString)
+Rule rdfs4b concluded (CL1EsK7zsx8VjQ/mzV8OBA== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/hippopotamus> <http://www.some-fictitious-zoo.com/rdf#species> CL1EsK7zsx8VjQ/mzV8OBA==)
+Rule rdfs9 concluded (d+Pf0IrlcOag8+5K9ud0Mw== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (d+Pf0IrlcOag8+5K9ud0Mw== rdf:type xsd:string)
+Rule rdfs4b concluded (d+Pf0IrlcOag8+5K9ud0Mw== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/aardvark> <http://www.some-fictitious-zoo.com/rdf#name> d+Pf0IrlcOag8+5K9ud0Mw==)
 Rule rdfs6 concluded (rdf:first rdfs:subPropertyOf rdf:first) <-
     Fact (rdf:first rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:first rdf:type rdfs:Resource) <-
     Fact (rdf:first rdfs:range rdfs:Resource)
+Rule rdfs9 concluded (29HRlWiEthuHtE9xDkF00w== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (29HRlWiEthuHtE9xDkF00w== rdf:type rdf:langString)
+Rule rdfs4b concluded (29HRlWiEthuHtE9xDkF00w== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/lion> <http://www.some-fictitious-zoo.com/rdf#species> 29HRlWiEthuHtE9xDkF00w==)
 Rule rdfs6 concluded (rdf:object rdfs:subPropertyOf rdf:object) <-
     Fact (rdf:object rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:object rdf:type rdfs:Resource) <-
@@ -53,22 +85,34 @@ Rule rdfs11 concluded (rdf:Alt rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
         Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
             Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/mammals/lion> rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/mammals/lion> <http://www.some-fictitious-zoo.com/rdf#class> 'Mammal')
+            Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs9 concluded (xjUFi+otDk7THyChJG94MA== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (xjUFi+otDk7THyChJG94MA== rdf:type rdf:langString)
+Rule rdfs4b concluded (xjUFi+otDk7THyChJG94MA== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles/anaconda> <http://www.some-fictitious-zoo.com/rdf#species> xjUFi+otDk7THyChJG94MA==)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/mammals/lion> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/mammals/llama> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_4 <http://www.some-fictitious-zoo.com/mammals/llama>)
 Rule rdfs8 concluded (rdf:List rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdf:List rdf:type rdfs:Class) <-
-        Fact (rdfs:domain rdfs:range rdfs:Class)
-        Fact (rdf:first rdfs:domain rdf:List)
+        Fact (rdfs:range rdfs:range rdfs:Class)
+        Fact (rdf:rest rdfs:range rdf:List)
 Rule rdfs10 concluded (rdf:List rdfs:subClassOf rdf:List) <-
     Rule rdfs3 concluded (rdf:List rdf:type rdfs:Class) <-
-        Fact (rdfs:domain rdfs:range rdfs:Class)
-        Fact (rdf:first rdfs:domain rdf:List)
+        Fact (rdfs:range rdfs:range rdfs:Class)
+        Fact (rdf:rest rdfs:range rdf:List)
 Rule rdfs3 concluded (rdf:List rdf:type rdfs:Class) <-
-    Fact (rdfs:domain rdfs:range rdfs:Class)
-    Fact (rdf:first rdfs:domain rdf:List)
+    Fact (rdfs:range rdfs:range rdfs:Class)
+    Fact (rdf:rest rdfs:range rdf:List)
 Rule rdfs4b concluded (rdf:List rdf:type rdfs:Resource) <-
-    Fact (rdf:first rdfs:domain rdf:List)
+    Fact (rdf:rest rdfs:range rdf:List)
+Rule rdfs9 concluded (xbZudEUMf5Afac7YRx/xxw== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (xbZudEUMf5Afac7YRx/xxw== rdf:type xsd:string)
+Rule rdfs4b concluded (xbZudEUMf5Afac7YRx/xxw== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/arachnids> <http://www.some-fictitious-zoo.com/rdf#name> xbZudEUMf5Afac7YRx/xxw==)
 Rule rdfs8 concluded (rdf:Statement rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdf:Statement rdf:type rdfs:Class) <-
         Fact (rdfs:domain rdfs:range rdfs:Class)
@@ -77,53 +121,35 @@ Rule rdfs10 concluded (rdf:Statement rdfs:subClassOf rdf:Statement) <-
     Rule rdfs3 concluded (rdf:Statement rdf:type rdfs:Class) <-
         Fact (rdfs:domain rdfs:range rdfs:Class)
         Fact (rdf:object rdfs:domain rdf:Statement)
-Rule rdfs4b concluded (rdf:Statement rdf:type rdfs:Resource) <-
-    Fact (rdf:object rdfs:domain rdf:Statement)
 Rule rdfs3 concluded (rdf:Statement rdf:type rdfs:Class) <-
     Fact (rdfs:domain rdfs:range rdfs:Class)
     Fact (rdf:object rdfs:domain rdf:Statement)
+Rule rdfs4b concluded (rdf:Statement rdf:type rdfs:Resource) <-
+    Fact (rdf:subject rdfs:domain rdf:Statement)
+Rule rdfs8 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+        Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+        Fact (rdf:langString rdf:type rdfs:Datatype)
 Rule rdfs10 concluded (rdf:langString rdfs:subClassOf rdf:langString) <-
-    Rule rdfs2 concluded (rdf:langString rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-        Rule rdfs11 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
-            Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-            Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-                Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-                    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-Rule rdfs2 concluded (rdf:langString rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-    Rule rdfs11 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
-        Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-        Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-            Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-                Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-Rule rdfs11 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
-    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-    Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+        Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+        Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+    Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+    Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs8 concluded (rdf:Seq rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs3 concluded (rdf:Seq rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdf:Seq)
 Rule rdfs10 concluded (rdf:Seq rdfs:subClassOf rdf:Seq) <-
-    Rule rdfs2 concluded (rdf:Seq rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-        Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs2 concluded (rdf:Seq rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs11 concluded (rdf:Seq rdfs:subClassOf rdfs:Resource) <-
-    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-    Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
-            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Rule rdfs3 concluded (rdf:Seq rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdf:Seq)
+Rule rdfs3 concluded (rdf:Seq rdf:type rdfs:Class) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Fact (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdf:Seq)
 Rule rdfs4b concluded (rdf:Seq rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:type rdf:Seq)
-Rule rdfs8 concluded (rdfs:ContainerMembershipProperty rdfs:subClassOf rdfs:Resource) <-
-    Rule rdfs2 concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-        Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:type rdf:Seq)
 Rule rdfs10 concluded (rdfs:ContainerMembershipProperty rdfs:subClassOf rdfs:ContainerMembershipProperty) <-
     Rule rdfs2 concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
@@ -133,92 +159,175 @@ Rule rdfs2 concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Class) <-
     Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
 Rule rdfs4a concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Resource) <-
     Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
-Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/rdf#class> rdf:type rdfs:Resource) <-
-    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#class> rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#class> 'Arachnid')
-Rule rdfs6 concluded (<http://www.some-fictitious-zoo.com/rdf#class> rdfs:subPropertyOf <http://www.some-fictitious-zoo.com/rdf#class>) <-
-    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#class> rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#class> 'Arachnid')
-Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#class> rdf:type rdf:Property) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#class> 'Arachnid')
+Rule rdfs11 concluded (rdfs:ContainerMembershipProperty rdfs:subClassOf rdfs:Resource) <-
+    Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
+    Rule rdfs8 concluded (rdf:Property rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
+            Fact (rdf:type rdfs:range rdfs:Class)
+            Fact (rdf:type rdf:type rdf:Property)
+Rule rdfs4a concluded (rdf:_5 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_5 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_5 <http://www.some-fictitious-zoo.com/mammals/polarbear>)
+Rule rdfs6 concluded (rdf:_5 rdfs:subPropertyOf rdf:_5) <-
+    Rule rdfD2 concluded (rdf:_5 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_5 <http://www.some-fictitious-zoo.com/mammals/polarbear>)
+Rule rdfD2 concluded (rdf:_5 rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_5 <http://www.some-fictitious-zoo.com/mammals/polarbear>)
+Rule rdfs9 concluded (lkTCfz1HMbHZno+ii5Krag== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (lkTCfz1HMbHZno+ii5Krag== rdf:type xsd:string)
+Rule rdfs4b concluded (lkTCfz1HMbHZno+ii5Krag== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/polarbear> <http://www.some-fictitious-zoo.com/rdf#specimens> lkTCfz1HMbHZno+ii5Krag==)
+Rule rdfs9 concluded (Wnva6Iv679Ilk5qWsYVXdA== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (Wnva6Iv679Ilk5qWsYVXdA== rdf:type xsd:string)
+Rule rdfs4b concluded (Wnva6Iv679Ilk5qWsYVXdA== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/birds/barnowl> <http://www.some-fictitious-zoo.com/rdf#name> Wnva6Iv679Ilk5qWsYVXdA==)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/birds/raven> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/birds/raven> <http://www.some-fictitious-zoo.com/rdf#name> 'Raven')
 Rule rdfs8 concluded (rdf:Property rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (rdf:type rdf:type rdf:Property)
 Rule rdfs10 concluded (rdf:Property rdfs:subClassOf rdf:Property) <-
     Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (rdf:type rdf:type rdf:Property)
 Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
-Rule rdfs4a concluded (rdf:nil rdf:type rdfs:Resource) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Fact (rdf:type rdf:type rdf:Property)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/fish/cod> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/fish/cod> <http://www.some-fictitious-zoo.com/rdf#name> 'Cod')
+Rule rdfs9 concluded (dQnkmr3b0cM5VEs+oYuteA== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (dQnkmr3b0cM5VEs+oYuteA== rdf:type xsd:string)
+Rule rdfs9 concluded (dQnkmr3b0cM5VEs+oYuteA== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (dQnkmr3b0cM5VEs+oYuteA== rdf:type xsd:string)
+Rule rdfs9 concluded (vas7njyknG/e+cAPGdLZFw== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
+    Fact (vas7njyknG/e+cAPGdLZFw== rdf:type rdf:langString)
+Rule rdfs9 concluded (vas7njyknG/e+cAPGdLZFw== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (vas7njyknG/e+cAPGdLZFw== rdf:type rdf:langString)
+Rule rdfs9 concluded (Ne2URHg5EKkcc1n0qTvFXQ== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
+    Fact (Ne2URHg5EKkcc1n0qTvFXQ== rdf:type rdf:langString)
+Rule rdfs9 concluded (Ne2URHg5EKkcc1n0qTvFXQ== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (Ne2URHg5EKkcc1n0qTvFXQ== rdf:type rdf:langString)
+Rule rdfs9 concluded (rdf:nil rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (rdf:List rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (rdf:List rdf:type rdfs:Class) <-
+            Fact (rdfs:range rdfs:range rdfs:Class)
+            Fact (rdf:rest rdfs:range rdf:List)
     Fact (rdf:nil rdf:type rdf:List)
 Rule rdfs4a concluded (rdfs:range rdf:type rdfs:Resource) <-
     Rule rdfD2 concluded (rdfs:range rdf:type rdf:Property) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+        Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
 Rule rdfs6 concluded (rdfs:range rdfs:subPropertyOf rdfs:range) <-
     Rule rdfD2 concluded (rdfs:range rdf:type rdf:Property) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+        Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
 Rule rdfD2 concluded (rdfs:range rdf:type rdf:Property) <-
-    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+    Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
+Rule rdfs9 concluded (ZIstrLjZWFoH0oKXUC7wGA== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (ZIstrLjZWFoH0oKXUC7wGA== rdf:type xsd:string)
+Rule rdfs9 concluded (ZIstrLjZWFoH0oKXUC7wGA== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (ZIstrLjZWFoH0oKXUC7wGA== rdf:type xsd:string)
 Rule rdfs6 concluded (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:isDefinedBy) <-
     Rule rdfs2 concluded (rdfs:isDefinedBy rdf:type rdf:Property) <-
-        Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
-        Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
+        Fact (rdfs:range rdfs:domain rdf:Property)
+        Fact (rdfs:isDefinedBy rdfs:range rdfs:Resource)
 Rule rdfs2 concluded (rdfs:isDefinedBy rdf:type rdf:Property) <-
-    Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
-    Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
+    Fact (rdfs:range rdfs:domain rdf:Property)
+    Fact (rdfs:isDefinedBy rdfs:range rdfs:Resource)
 Rule rdfs4a concluded (rdfs:isDefinedBy rdf:type rdfs:Resource) <-
     Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
 Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/arachnids/tarantula> rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#class> 'Arachnid')
-Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/mammals/hippopotamus> rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/mammals/hippopotamus> <http://www.some-fictitious-zoo.com/rdf#class> 'Mammal')
+    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#name> 'Tarantula')
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/mammals/hippopotamus> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_2 <http://www.some-fictitious-zoo.com/mammals/hippopotamus>)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/birds/barnowl> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/birds/barnowl> <http://www.some-fictitious-zoo.com/rdf#name> 'Barn Owl')
 Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+        Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
 Rule rdfs10 concluded (rdfs:Container rdfs:subClassOf rdfs:Container) <-
     Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+        Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs4b concluded (rdfs:Container rdf:type rdfs:Resource) <-
+    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
 Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs4b concluded (rdfs:Container rdf:type rdfs:Resource) <-
-    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs9 concluded (+kvZd5FRun0fT3RmsMml7Q== rdf:type rdfs:Literal) <-
+    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs9 concluded (F1lSnSBhPTKk8I1jNo7t8g== rdf:type rdfs:Literal) <-
     Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-    Fact (+kvZd5FRun0fT3RmsMml7Q== rdf:type xsd:string)
-Rule rdfs9 concluded (+kvZd5FRun0fT3RmsMml7Q== rdf:type rdfs:Resource) <-
-    Rule rdfs11 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
-        Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-        Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-            Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-                Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-    Fact (+kvZd5FRun0fT3RmsMml7Q== rdf:type xsd:string)
-Rule rdfs9 concluded (B9T4GKwbF5mKz0Ljc3JBBA== rdf:type rdfs:Literal) <-
-    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
-    Fact (B9T4GKwbF5mKz0Ljc3JBBA== rdf:type rdf:langString)
-Rule rdfs4b concluded (B9T4GKwbF5mKz0Ljc3JBBA== rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_1 B9T4GKwbF5mKz0Ljc3JBBA==)
+    Fact (F1lSnSBhPTKk8I1jNo7t8g== rdf:type xsd:string)
+Rule rdfs4b concluded (F1lSnSBhPTKk8I1jNo7t8g== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles/chameleon> <http://www.some-fictitious-zoo.com/rdf#specimens> F1lSnSBhPTKk8I1jNo7t8g==)
 Rule rdfs10 concluded (rdf:Bag rdfs:subClassOf rdf:Bag) <-
     Rule rdfs2 concluded (rdf:Bag rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
         Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
-Rule rdfs2 concluded (rdf:Bag rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
-Rule rdfs4a concluded (rdf:Bag rdf:type rdfs:Resource) <-
-    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
 Rule rdfs11 concluded (rdf:Bag rdfs:subClassOf rdfs:Resource) <-
     Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
     Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
         Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
             Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+            Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs2 concluded (rdf:Bag rdf:type rdfs:Class) <-
+    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs4a concluded (rdf:Bag rdf:type rdfs:Resource) <-
+    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs9 concluded (G+IBJ0flkTCtNXR6SbgkaQ== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (G+IBJ0flkTCtNXR6SbgkaQ== rdf:type xsd:string)
+Rule rdfs4b concluded (G+IBJ0flkTCtNXR6SbgkaQ== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/birds/emu> <http://www.some-fictitious-zoo.com/rdf#specimens> G+IBJ0flkTCtNXR6SbgkaQ==)
+Rule rdfs9 concluded (t+04JXeFEO9uZ9EELv44/w== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (t+04JXeFEO9uZ9EELv44/w== rdf:type xsd:string)
+Rule rdfs9 concluded (t+04JXeFEO9uZ9EELv44/w== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (t+04JXeFEO9uZ9EELv44/w== rdf:type xsd:string)
+Rule rdfs4a concluded (rdf:_4 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_4 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_4 <http://www.some-fictitious-zoo.com/mammals/llama>)
+Rule rdfs6 concluded (rdf:_4 rdfs:subPropertyOf rdf:_4) <-
+    Rule rdfD2 concluded (rdf:_4 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_4 <http://www.some-fictitious-zoo.com/mammals/llama>)
+Rule rdfD2 concluded (rdf:_4 rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_4 <http://www.some-fictitious-zoo.com/mammals/llama>)
+Rule rdfs9 concluded (crRxVl+932MVyKISXNt5dg== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (crRxVl+932MVyKISXNt5dg== rdf:type xsd:string)
+Rule rdfs4b concluded (crRxVl+932MVyKISXNt5dg== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles/anaconda> <http://www.some-fictitious-zoo.com/rdf#specimens> crRxVl+932MVyKISXNt5dg==)
+Rule rdfs9 concluded (0XS1PIpoYMV9oryqjLQhcw== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (0XS1PIpoYMV9oryqjLQhcw== rdf:type xsd:string)
+Rule rdfs4b concluded (0XS1PIpoYMV9oryqjLQhcw== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#name> 0XS1PIpoYMV9oryqjLQhcw==)
 Rule rdfs6 concluded (rdfs:label rdfs:subPropertyOf rdfs:label) <-
     Rule rdfs2 concluded (rdfs:label rdf:type rdf:Property) <-
         Fact (rdfs:range rdfs:domain rdf:Property)
@@ -228,45 +337,135 @@ Rule rdfs2 concluded (rdfs:label rdf:type rdf:Property) <-
     Fact (rdfs:label rdfs:range rdfs:Literal)
 Rule rdfs4a concluded (rdfs:label rdf:type rdfs:Resource) <-
     Fact (rdfs:label rdfs:range rdfs:Literal)
+Rule rdfs9 concluded (<http://www.some-fictitious-zoo.com/arachnids> rdf:type rdfs:Container) <-
+    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Fact (<http://www.some-fictitious-zoo.com/arachnids> rdf:type rdf:Seq)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/arachnids> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_1 <http://www.some-fictitious-zoo.com/arachnids>)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/mammals/aardvark> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_6 <http://www.some-fictitious-zoo.com/mammals/aardvark>)
 Rule rdfs9 concluded (ydlTfg6GhtUSP08kQLgV5Q== rdf:type rdfs:Literal) <-
     Fact (xsd:string rdfs:subClassOf rdfs:Literal)
     Fact (ydlTfg6GhtUSP08kQLgV5Q== rdf:type xsd:string)
-Rule rdfs4b concluded (ydlTfg6GhtUSP08kQLgV5Q== rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/mammals/hippopotamus> <http://www.some-fictitious-zoo.com/rdf#name> ydlTfg6GhtUSP08kQLgV5Q==)
-Rule rdfs9 concluded (2kQtdnwUptW3gA5TrSpSfg== rdf:type rdfs:Literal) <-
-    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-    Fact (2kQtdnwUptW3gA5TrSpSfg== rdf:type xsd:string)
-Rule rdfs4b concluded (2kQtdnwUptW3gA5TrSpSfg== rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#class> 2kQtdnwUptW3gA5TrSpSfg==)
+Rule rdfs9 concluded (ydlTfg6GhtUSP08kQLgV5Q== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (ydlTfg6GhtUSP08kQLgV5Q== rdf:type xsd:string)
 Rule rdfs6 concluded (rdf:predicate rdfs:subPropertyOf rdf:predicate) <-
     Fact (rdf:predicate rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:predicate rdf:type rdfs:Resource) <-
     Fact (rdf:predicate rdfs:range rdfs:Resource)
+Rule rdfs9 concluded (Hclpl5AOFf6qKlzdn7Adnw== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (Hclpl5AOFf6qKlzdn7Adnw== rdf:type xsd:string)
+Rule rdfs9 concluded (Hclpl5AOFf6qKlzdn7Adnw== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (Hclpl5AOFf6qKlzdn7Adnw== rdf:type xsd:string)
+Rule rdfs9 concluded (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdfs:Container) <-
+    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Fact (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdf:Seq)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles> rdf:type rdf:Seq)
+Rule rdfs9 concluded (Uw7PYv0X98O8m7OsZRIM+A== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (Uw7PYv0X98O8m7OsZRIM+A== rdf:type xsd:string)
+Rule rdfs9 concluded (Uw7PYv0X98O8m7OsZRIM+A== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (Uw7PYv0X98O8m7OsZRIM+A== rdf:type xsd:string)
+Rule rdfs9 concluded (XReJzld3/kHC6OJv7jdF1w== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
+    Fact (XReJzld3/kHC6OJv7jdF1w== rdf:type rdf:langString)
+Rule rdfs9 concluded (XReJzld3/kHC6OJv7jdF1w== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (XReJzld3/kHC6OJv7jdF1w== rdf:type rdf:langString)
+Rule rdfs9 concluded (+IyHUBerBNGViWpLu/cE9g== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
+    Fact (+IyHUBerBNGViWpLu/cE9g== rdf:type rdf:langString)
+Rule rdfs9 concluded (+IyHUBerBNGViWpLu/cE9g== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (+IyHUBerBNGViWpLu/cE9g== rdf:type rdf:langString)
 Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/rdf#species> rdf:type rdfs:Resource) <-
     Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#species> rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#species> 'Avicularia avicularia'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+        Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#species> 'Loxodonta africana'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 Rule rdfs6 concluded (<http://www.some-fictitious-zoo.com/rdf#species> rdfs:subPropertyOf <http://www.some-fictitious-zoo.com/rdf#species>) <-
     Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#species> rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#species> 'Avicularia avicularia'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+        Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#species> 'Loxodonta africana'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#species> rdf:type rdf:Property) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#species> 'Avicularia avicularia'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+    Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#species> 'Loxodonta africana'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/mammals/ninebandedarmadillo> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_7 <http://www.some-fictitious-zoo.com/mammals/ninebandedarmadillo>)
+Rule rdfs9 concluded (whnC0GdZKtlLm3v+6oeQpg== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (whnC0GdZKtlLm3v+6oeQpg== rdf:type xsd:string)
+Rule rdfs4b concluded (whnC0GdZKtlLm3v+6oeQpg== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> <http://www.some-fictitious-zoo.com/rdf#name> whnC0GdZKtlLm3v+6oeQpg==)
+Rule rdfs4a concluded (rdf:_3 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_3 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_3 <http://www.some-fictitious-zoo.com/mammals/africanelephant>)
+Rule rdfs6 concluded (rdf:_3 rdfs:subPropertyOf rdf:_3) <-
+    Rule rdfD2 concluded (rdf:_3 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_3 <http://www.some-fictitious-zoo.com/mammals/africanelephant>)
+Rule rdfD2 concluded (rdf:_3 rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_3 <http://www.some-fictitious-zoo.com/mammals/africanelephant>)
 Rule rdfs10 concluded (rdfs:Resource rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Resource rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
-            Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
-                Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Rule rdfs4b concluded ('Lion' rdf:type rdfs:Resource) <-
+            Fact (<http://www.some-fictitious-zoo.com/mammals/lion> <http://www.some-fictitious-zoo.com/rdf#name> 'Lion')
 Rule rdfs3 concluded (rdfs:Resource rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
-            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Rule rdfs4b concluded ('Lion' rdf:type rdfs:Resource) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals/lion> <http://www.some-fictitious-zoo.com/rdf#name> 'Lion')
+Rule rdfs9 concluded (k700zjSimvGZulrLRrFBVw== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (k700zjSimvGZulrLRrFBVw== rdf:type xsd:string)
+Rule rdfs9 concluded (k700zjSimvGZulrLRrFBVw== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (k700zjSimvGZulrLRrFBVw== rdf:type xsd:string)
+Rule rdfs9 concluded (ZbHr9uCHK6F/2LFUYZa1kw== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
+    Fact (ZbHr9uCHK6F/2LFUYZa1kw== rdf:type rdf:langString)
+Rule rdfs9 concluded (ZbHr9uCHK6F/2LFUYZa1kw== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (ZbHr9uCHK6F/2LFUYZa1kw== rdf:type rdf:langString)
 Rule rdfs6 concluded (rdf:rest rdfs:subPropertyOf rdf:rest) <-
     Fact (rdf:rest rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:rest rdf:type rdfs:Resource) <-
     Fact (rdf:rest rdfs:range rdf:List)
+Rule rdfs9 concluded (C0YCvkA+V3PDrKziuEfrUQ== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (C0YCvkA+V3PDrKziuEfrUQ== rdf:type xsd:string)
+Rule rdfs4b concluded (C0YCvkA+V3PDrKziuEfrUQ== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles/chameleon> <http://www.some-fictitious-zoo.com/rdf#name> C0YCvkA+V3PDrKziuEfrUQ==)
+Rule rdfs9 concluded (qXH1GJw5yh2/d+f/gDx03w== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (qXH1GJw5yh2/d+f/gDx03w== rdf:type xsd:string)
+Rule rdfs9 concluded (qXH1GJw5yh2/d+f/gDx03w== rdf:type rdfs:Resource) <-
+    Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (qXH1GJw5yh2/d+f/gDx03w== rdf:type xsd:string)
 Rule rdfs9 concluded (<http://www.some-fictitious-zoo.com/all-animals> rdf:type rdfs:Container) <-
     Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
     Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:type rdf:Seq)
@@ -278,36 +477,78 @@ Rule rdfs4a concluded (rdf:value rdf:type rdfs:Resource) <-
     Fact (rdf:value rdfs:range rdfs:Resource)
 Rule rdfs8 concluded (rdfs:Class rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Class rdf:type rdfs:Class) <-
-        Fact (rdfs:domain rdfs:range rdfs:Class)
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
 Rule rdfs10 concluded (rdfs:Class rdfs:subClassOf rdfs:Class) <-
     Rule rdfs3 concluded (rdfs:Class rdf:type rdfs:Class) <-
-        Fact (rdfs:domain rdfs:range rdfs:Class)
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-Rule rdfs3 concluded (rdfs:Class rdf:type rdfs:Class) <-
-    Fact (rdfs:domain rdfs:range rdfs:Class)
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-Rule rdfs4b concluded (rdfs:Class rdf:type rdfs:Resource) <-
-    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-Rule rdfs8 concluded (rdfs:Datatype rdfs:subClassOf rdfs:Resource) <-
-    Rule rdfs3 concluded (rdfs:Datatype rdf:type rdfs:Class) <-
         Fact (rdf:type rdfs:range rdfs:Class)
-        Fact (xsd:string rdf:type rdfs:Datatype)
+        Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+            Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+            Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs3 concluded (rdfs:Class rdf:type rdfs:Class) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+        Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+        Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs4b concluded (rdfs:Class rdf:type rdfs:Resource) <-
+    Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
 Rule rdfs10 concluded (rdfs:Datatype rdfs:subClassOf rdfs:Datatype) <-
     Rule rdfs3 concluded (rdfs:Datatype rdf:type rdfs:Class) <-
         Fact (rdf:type rdfs:range rdfs:Class)
-        Fact (xsd:string rdf:type rdfs:Datatype)
+        Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs11 concluded (rdfs:Datatype rdfs:subClassOf rdfs:Resource) <-
+    Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+    Rule rdfs8 concluded (rdfs:Class rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (rdfs:Class rdf:type rdfs:Class) <-
+            Fact (rdf:type rdfs:range rdfs:Class)
+            Rule rdfs9 concluded (rdf:langString rdf:type rdfs:Class) <-
+                Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+                Fact (rdf:langString rdf:type rdfs:Datatype)
 Rule rdfs3 concluded (rdfs:Datatype rdf:type rdfs:Class) <-
     Fact (rdf:type rdfs:range rdfs:Class)
-    Fact (xsd:string rdf:type rdfs:Datatype)
+    Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs9 concluded (dbdvSI78Du1hmp9ZSLCuXg== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (dbdvSI78Du1hmp9ZSLCuXg== rdf:type rdf:langString)
+Rule rdfs4b concluded (dbdvSI78Du1hmp9ZSLCuXg== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/polarbear> <http://www.some-fictitious-zoo.com/rdf#species> dbdvSI78Du1hmp9ZSLCuXg==)
 Rule rdfs4a concluded (rdf:_2 rdf:type rdfs:Resource) <-
     Rule rdfD2 concluded (rdf:_2 rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_2 <http://www.some-fictitious-zoo.com/arachnids/tarantula>)
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_2 <http://www.some-fictitious-zoo.com/mammals/hippopotamus>)
 Rule rdfs6 concluded (rdf:_2 rdfs:subPropertyOf rdf:_2) <-
     Rule rdfD2 concluded (rdf:_2 rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_2 <http://www.some-fictitious-zoo.com/arachnids/tarantula>)
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_2 <http://www.some-fictitious-zoo.com/mammals/hippopotamus>)
 Rule rdfD2 concluded (rdf:_2 rdf:type rdf:Property) <-
-    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_2 <http://www.some-fictitious-zoo.com/arachnids/tarantula>)
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_2 <http://www.some-fictitious-zoo.com/mammals/hippopotamus>)
+Rule rdfs4a concluded (SPGM/6O3G41/d2qWppG77Q== rdf:type rdfs:Resource) <-
+    Fact (SPGM/6O3G41/d2qWppG77Q== rdf:type xsd:string)
+Rule rdfs9 concluded (SPGM/6O3G41/d2qWppG77Q== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (SPGM/6O3G41/d2qWppG77Q== rdf:type xsd:string)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/mammals/polarbear> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_5 <http://www.some-fictitious-zoo.com/mammals/polarbear>)
+Rule rdfs9 concluded (64ZU1mgCxKkkflIxogPuXg== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (64ZU1mgCxKkkflIxogPuXg== rdf:type xsd:string)
+Rule rdfs4b concluded (64ZU1mgCxKkkflIxogPuXg== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/fish> <http://www.some-fictitious-zoo.com/rdf#name> 64ZU1mgCxKkkflIxogPuXg==)
+Rule rdfs9 concluded (5BKKEhacm1vVdezYcJj2pw== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (5BKKEhacm1vVdezYcJj2pw== rdf:type rdf:langString)
+Rule rdfs4b concluded (5BKKEhacm1vVdezYcJj2pw== rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles/chameleon> <http://www.some-fictitious-zoo.com/rdf#species> 5BKKEhacm1vVdezYcJj2pw==)
+Rule rdfs9 concluded (<http://www.some-fictitious-zoo.com/mammals> rdf:type rdfs:Container) <-
+    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:type rdf:Seq)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/mammals> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:type rdf:Seq)
+Rule rdfs4a concluded (ETsUnXbg+4a6vby324ogMw== rdf:type rdfs:Resource) <-
+    Fact (ETsUnXbg+4a6vby324ogMw== rdf:type rdf:langString)
+Rule rdfs9 concluded (ETsUnXbg+4a6vby324ogMw== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (ETsUnXbg+4a6vby324ogMw== rdf:type rdf:langString)
 Rule rdfs6 concluded (rdf:subject rdfs:subPropertyOf rdf:subject) <-
     Fact (rdf:subject rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:subject rdf:type rdfs:Resource) <-
@@ -330,58 +571,98 @@ Rule rdfs2 concluded (rdfs:seeAlso rdf:type rdf:Property) <-
     Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
 Rule rdfs4a concluded (rdfs:seeAlso rdf:type rdfs:Resource) <-
     Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
+Rule rdfs4a concluded (anjNOh3KMvemhRuAjD0Qug== rdf:type rdfs:Resource) <-
+    Fact (anjNOh3KMvemhRuAjD0Qug== rdf:type rdf:langString)
+Rule rdfs9 concluded (anjNOh3KMvemhRuAjD0Qug== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (anjNOh3KMvemhRuAjD0Qug== rdf:type rdf:langString)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/reptiles/anaconda> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles> rdf:_1 <http://www.some-fictitious-zoo.com/reptiles/anaconda>)
+Rule rdfs4a concluded (rdf:_7 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_7 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_7 <http://www.some-fictitious-zoo.com/mammals/ninebandedarmadillo>)
+Rule rdfs6 concluded (rdf:_7 rdfs:subPropertyOf rdf:_7) <-
+    Rule rdfD2 concluded (rdf:_7 rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_7 <http://www.some-fictitious-zoo.com/mammals/ninebandedarmadillo>)
+Rule rdfD2 concluded (rdf:_7 rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_7 <http://www.some-fictitious-zoo.com/mammals/ninebandedarmadillo>)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/mammals/africanelephant> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#name> 'African Elephant')
 Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Rule rdfs9 concluded (ETsUnXbg+4a6vby324ogMw== rdf:type rdfs:Literal) <-
+            Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+            Fact (ETsUnXbg+4a6vby324ogMw== rdf:type rdf:langString)
 Rule rdfs10 concluded (rdfs:Literal rdfs:subClassOf rdfs:Literal) <-
     Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Rule rdfs9 concluded (ETsUnXbg+4a6vby324ogMw== rdf:type rdfs:Literal) <-
+            Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+            Fact (ETsUnXbg+4a6vby324ogMw== rdf:type rdf:langString)
 Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdfs:Resource) <-
-    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#name> 'Tarantula')
-Rule rdfs6 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdfs:subPropertyOf <http://www.some-fictitious-zoo.com/rdf#name>) <-
-    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#name> 'Tarantula')
-Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdf:Property) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#name> 'Tarantula')
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Rule rdfs9 concluded (ETsUnXbg+4a6vby324ogMw== rdf:type rdfs:Literal) <-
+        Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+        Fact (ETsUnXbg+4a6vby324ogMw== rdf:type rdf:langString)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/reptiles/chameleon> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/reptiles/chameleon> <http://www.some-fictitious-zoo.com/rdf#name> 'Chameleon')
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/birds/emu> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/birds/emu> <http://www.some-fictitious-zoo.com/rdf#name> 'Emu')
+Rule rdfs9 concluded (<http://www.some-fictitious-zoo.com/fish> rdf:type rdfs:Container) <-
+    Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
+    Fact (<http://www.some-fictitious-zoo.com/fish> rdf:type rdf:Seq)
+Rule rdfs4b concluded (<http://www.some-fictitious-zoo.com/fish> rdf:type rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_3 <http://www.some-fictitious-zoo.com/fish>)
+Rule rdfs4a concluded (yZ3P6YvzSg2aLIW9cHXLjA== rdf:type rdfs:Resource) <-
+    Fact (yZ3P6YvzSg2aLIW9cHXLjA== rdf:type xsd:string)
 Rule rdfs9 concluded (yZ3P6YvzSg2aLIW9cHXLjA== rdf:type rdfs:Literal) <-
     Fact (xsd:string rdfs:subClassOf rdfs:Literal)
     Fact (yZ3P6YvzSg2aLIW9cHXLjA== rdf:type xsd:string)
-Rule rdfs4b concluded (yZ3P6YvzSg2aLIW9cHXLjA== rdf:type rdfs:Resource) <-
-    Fact (<http://www.some-fictitious-zoo.com/arachnids/tarantula> <http://www.some-fictitious-zoo.com/rdf#name> yZ3P6YvzSg2aLIW9cHXLjA==)
+Rule rdfs4a concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#name> 'African Elephant')
+Rule rdfs6 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdfs:subPropertyOf <http://www.some-fictitious-zoo.com/rdf#name>) <-
+    Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdf:Property) <-
+        Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#name> 'African Elephant')
+Rule rdfD2 concluded (<http://www.some-fictitious-zoo.com/rdf#name> rdf:type rdf:Property) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals/africanelephant> <http://www.some-fictitious-zoo.com/rdf#name> 'African Elephant')
+Rule rdfs4a concluded (h9uEkpllNwuJ+f3Hcg3ftg== rdf:type rdfs:Resource) <-
+    Fact (h9uEkpllNwuJ+f3Hcg3ftg== rdf:type rdf:langString)
+Rule rdfs9 concluded (h9uEkpllNwuJ+f3Hcg3ftg== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (h9uEkpllNwuJ+f3Hcg3ftg== rdf:type rdf:langString)
 Rule rdfs4a concluded (rdf:_1 rdf:type rdfs:Resource) <-
     Rule rdfD2 concluded (rdf:_1 rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
 Rule rdfs6 concluded (rdf:_1 rdfs:subPropertyOf rdf:_1) <-
     Rule rdfD2 concluded (rdf:_1 rdf:type rdf:Property) <-
-        Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
+        Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
 Rule rdfD2 concluded (rdf:_1 rdf:type rdf:Property) <-
-    Fact (<http://www.some-fictitious-zoo.com/all-animals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
-Rule rdfs10 concluded (xsd:string rdfs:subClassOf xsd:string) <-
-    Rule rdfs2 concluded (xsd:string rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-        Rule rdfs11 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
-            Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-            Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-                Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-                    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-Rule rdfs2 concluded (xsd:string rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-    Rule rdfs11 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
-        Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-        Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-            Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-                Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-Rule rdfs11 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+    Fact (<http://www.some-fictitious-zoo.com/mammals> rdf:_1 <http://www.some-fictitious-zoo.com/mammals/lion>)
+Rule rdfs4a concluded (mxWSBH2ZctEUWaQQ77ZVOg== rdf:type rdfs:Resource) <-
+    Fact (mxWSBH2ZctEUWaQQ77ZVOg== rdf:type xsd:string)
+Rule rdfs9 concluded (mxWSBH2ZctEUWaQQ77ZVOg== rdf:type rdfs:Literal) <-
     Fact (xsd:string rdfs:subClassOf rdfs:Literal)
-    Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (mxWSBH2ZctEUWaQQ77ZVOg== rdf:type xsd:string)
+Rule rdfs4a concluded (7LjWL2xsmdm4dhm7jK7FnQ== rdf:type rdfs:Resource) <-
+    Fact (7LjWL2xsmdm4dhm7jK7FnQ== rdf:type xsd:string)
+Rule rdfs9 concluded (7LjWL2xsmdm4dhm7jK7FnQ== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (7LjWL2xsmdm4dhm7jK7FnQ== rdf:type xsd:string)
+Rule rdfs4a concluded (SPtpckvJV1/sp5yD6QFylg== rdf:type rdfs:Resource) <-
+    Fact (SPtpckvJV1/sp5yD6QFylg== rdf:type xsd:string)
+Rule rdfs9 concluded (SPtpckvJV1/sp5yD6QFylg== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (SPtpckvJV1/sp5yD6QFylg== rdf:type xsd:string)
+Rule rdfs8 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+        Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+        Fact (xsd:string rdf:type rdfs:Datatype)
+Rule rdfs10 concluded (xsd:string rdfs:subClassOf xsd:string) <-
+    Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+        Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+        Fact (xsd:string rdf:type rdfs:Datatype)
+Rule rdfs9 concluded (xsd:string rdf:type rdfs:Class) <-
+    Fact (rdfs:Datatype rdfs:subClassOf rdfs:Class)
+    Fact (xsd:string rdf:type rdfs:Datatype)

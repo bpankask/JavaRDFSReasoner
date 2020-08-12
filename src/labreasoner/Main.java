@@ -56,7 +56,7 @@ public class Main {
 		final long startTime = System.nanoTime();
 		
 		//input file to be reasoned on
-		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\animalTest.ttl";
+		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\geoL.ttl";
 		//text file containing rules and axioms
 		String ruleFile = "Rules.txt";
 		//output file used to trace triples that were added during reasoning
@@ -107,41 +107,36 @@ public class Main {
 	 */
 	public static void reasonAndTrace(OntModel ontModel, String ruleFile, String traceFileName, String reasonedOntology) throws FileNotFoundException {
 		
+		//register for custom method used in rule file
+		BuiltinRegistry.theRegistry.register(new Property_Check());
+		
 		//load rules
-    	List<Rule> rules = Rule.rulesFromURL("Rules1.txt");
-    	List<Rule> rules2 = Rule.rulesFromURL("Rules2.txt");
+	 	List<Rule> rules = Rule.rulesFromURL(ruleFile);
     	
     	//creates reasoner with custom rules and enables tracing
-    	Reasoner reasoner = new GenericRuleReasoner(rules);
+	 	Reasoner reasoner = new GenericRuleReasoner(rules);
     	reasoner.setDerivationLogging(true);
     	reasoner.setParameter(ReasonerVocabulary.PROPtraceOn, Boolean.TRUE);
     	
-    	Reasoner reasoner2 = new GenericRuleReasoner(rules2);
-    	reasoner2.setDerivationLogging(true);
-    	reasoner2.setParameter(ReasonerVocabulary.PROPtraceOn, Boolean.TRUE);
-    	
     	//creates an inference model using custom reasoner and the read in ontology model
     	//contains the original KG and inferences
-    	InfModel inf = ModelFactory.createInfModel(reasoner, ontModel);  
-    	
-    	InfModel inf2 = ModelFactory.createInfModel(reasoner2, inf);  
+    	InfModel inf = ModelFactory.createInfModel(reasoner, ontModel); 
     	
     	//print new graph to a file in turtle
     	PrintWriter reasonedOnt = new PrintWriter(reasonedOntology);
-    	inf2.write(reasonedOnt, "TURTLE");
-     
+    	inf.write(reasonedOnt, "TURTLE");
     	
     	//stuff to write trace to a file
-    	PrintWriter out = new PrintWriter(traceFileName);
-    	for (StmtIterator i = inf2.listStatements(); i.hasNext(); ) {
-    	    Statement s = i.nextStatement();
-    	    for (Iterator id = inf2.getDerivation(s); id.hasNext(); ) {
-    	        Derivation deriv = (Derivation) id.next();
-    	        //System.out.println(deriv.toString());
-    	        deriv.printTrace(out, true);
-    	    }
-    	} 
-    	out.flush();
+//    	PrintWriter out = new PrintWriter(traceFileName);
+//    	for (StmtIterator i = inf2.listStatements(); i.hasNext(); ) {
+//    	    Statement s = i.nextStatement();
+//    	    for (Iterator id = inf2.getDerivation(s); id.hasNext(); ) {
+//    	        Derivation deriv = (Derivation) id.next();
+//    	        //System.out.println(deriv.toString());
+//    	        deriv.printTrace(out, true);
+//    	    }
+//    	} 
+//    	out.flush();
 	}
 	
 	/**

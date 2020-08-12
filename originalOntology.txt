@@ -1,26 +1,27 @@
-@prefix ANIMALS: <http://www.some-fictitious-zoo.com/rdf#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ipc:   <http://data.epo.org/linked-data/def/ipc/> .
 
-<http://www.some-fictitious-zoo.com/all-animals>
-        a       rdf:Seq ;
-        rdf:_1  "Panthera leo"@lt ;
-        rdf:_1  <http://www.some-fictitious-zoo.com/mammals/lion> ;
-        rdf:_2  <http://www.some-fictitious-zoo.com/arachnids/tarantula> .
+ipc:symbol  a               owl:DatatypeProperty ;
+        rdf:_10             "Test1" ;
+        rdfs:comment        "The property :symbol is a general purpose property that relates a resource to the notation for a node in the international patent classification (ipc) scheme"@en ;
+        rdfs:label          "symbol"@en ;
+        rdfs:subPropertyOf  <http://www.w3.org/2004/02/skos/core#notation> .
 
-<http://www.some-fictitious-zoo.com/mammals/lion>
-        ANIMALS:class    "Mammal" ;
-        ANIMALS:name     "Lion"^^rdf:XMLLiteral ;
-        ANIMALS:species  "Panthera leo"@lt .
+ipc:Classification  a    owl:Class ;
+        rdf:_64838       "Test3" ;
+        rdfs:comment     "An IPC classification."@en ;
+        rdfs:label       "Classification"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2004/02/skos/core#Concept> .
 
-<http://www.some-fictitious-zoo.com/mammals/hippopotamus>
-        ANIMALS:class    "Mammal" ;
-        ANIMALS:name     "Hippopotamus" ;
-        ANIMALS:species  "Hippopotamus amphibius"@lt .
+ipc:classification  a  owl:ObjectProperty ;
+        rdf:_857      "Test2" ;
+        rdfs:comment  "The property :classification is a general purpose property that release a resource to an IPC classification."@en ;
+        rdfs:label    "classification"@en ;
+        rdfs:range    ipc:Classification .
 
-<http://www.some-fictitious-zoo.com/arachnids/tarantula>
-        ANIMALS:class    "Arachnid" ;
-        ANIMALS:name     "Tarantula" ;
-        ANIMALS:species  "Avicularia avicularia"@lt .
+ipc:    a             owl:Ontology ;
+        rdfs:comment  "A vocabulary for representing some concepts from the International Patent Classification (IPC) scheme.  This is currently minimal."@en ;
+        rdfs:label    "IPC ontology"@en .

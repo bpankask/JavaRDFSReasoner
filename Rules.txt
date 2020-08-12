@@ -54,13 +54,15 @@
 
 -> (rdfs:Datatype rdfs:subClassOf rdfs:Class) .
 
-//axiomatic triples of rdf:_1 and similar
-[rdf_number: (?u ?a ?x), propertyCheck(?a) -> (?a rdf:type rdf:Property), (?a rdf:type rdfs:ContainerMembershipProperty), (?a rdfs:range rdfs:Resource), (?a rdfs:domain rdfs:Resource)]
-
+//container membership axiomatic triples
+[rdf_container: (?u ?a ?x), propertyCheck(?a) -> (?a rdf:type rdf:Property), (?a rdf:type rdfs:ContainerMembershipProperty), (?a rdfs:range rdfs:Resource), (?a rdfs:domain rdfs:Resource)]
 
 //-----------------------------RDF/Simple Entailment Rules------------------------------
-[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
-//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+//[rdfD1Altered: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+//[rdfD1Altered: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+
 [rdfD2: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
 
 //-----------------------------RDFS Entailment Rules-----------------------------
@@ -93,9 +95,5 @@
 
 [rdfs13: (?u rdf:type rdfs:Datatype) -> (?u rdfs:subClassOf rdfs:Literal)]
 
-//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
-//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
-//[GrdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString) -> (?l rdf:type rdf:langString)]
-//-> ( xsd:string  rdf:type rdfs:Datatype ) .
-//-> ( rdf:langString  rdf:type rdfs:Datatype ) .
+//generalized rule
 //[GrdfD1: (?x ?a ?l), isLiteral(?l), testGrdfD1(?l) -> ]

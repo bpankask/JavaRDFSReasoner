@@ -10,33 +10,27 @@ public class Property_Check implements Builtin{
 
 	@Override
 	public boolean bodyCall(Node[] arg0, int arg1, RuleContext arg2) {
+	
+		String property = arg0[0].toString();
+		if(property.length() > 44) {
+			String rdf = property.substring(0, 43);
+			if(rdf.contentEquals("http://www.w3.org/1999/02/22-rdf-syntax-ns#")) {
+				String rest = property.substring(43);
+				//System.out.println(rest);
+				if(rest.substring(0,1).contentEquals("_")) {
+					String potentialNumb = rest.substring(1);
+					try {
+						Integer.parseInt(potentialNumb);
+						return true;
+					}//end try
+					catch(Exception e) {
+						//nothing should happen if error occurs
+					}//end catch
+				}//third if
+			}//second if
+		}//first if
 		
-		String datatype = arg0[0].getLiteralDatatypeURI();
-		
-		System.out.println(datatype);
-		
-		
-//		String property = arg0[0].toString();
-//		if(property.length() > 44) {
-//			String rdf = property.substring(0, 43);
-//			if(rdf.contentEquals("http://www.w3.org/1999/02/22-rdf-syntax-ns#")) {
-//				String rest = property.substring(43);
-//				//System.out.println(rest);
-//				if(rest.substring(0,1).contentEquals("_")) {
-//					String potentialNumb = rest.substring(1);
-//					try {
-//						Integer.parseInt(potentialNumb);
-//						return true;
-//					}//end try
-//					catch(Exception e) {
-//						//nothing should happen if error occurs
-//					}//end catch
-//				}//third if
-//			}//second if
-//		}//first if
-//		
-//		return false;
-		return true;
+		return false;
 	}
 
 	@Override
