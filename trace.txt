@@ -1,34 +1,81 @@
 Rule rdfs4a concluded (rdfs:domain rdf:type rdfs:Resource) <-
-    Rule rdf1 concluded (rdfs:domain rdf:type rdf:Property) <-
+    Rule rdfD2 concluded (rdfs:domain rdf:type rdf:Property) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
 Rule rdfs6 concluded (rdfs:domain rdfs:subPropertyOf rdfs:domain) <-
-    Rule rdf1 concluded (rdfs:domain rdf:type rdf:Property) <-
+    Rule rdfD2 concluded (rdfs:domain rdf:type rdf:Property) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-Rule rdf1 concluded (rdfs:domain rdf:type rdf:Property) <-
+Rule rdfD2 concluded (rdfs:domain rdf:type rdf:Property) <-
     Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-Rule rdfs6 concluded (rdfs:comment rdfs:subPropertyOf rdfs:comment) <-
-    Rule rdfs2 concluded (rdfs:comment rdf:type rdf:Property) <-
-        Fact (rdfs:range rdfs:domain rdf:Property)
-        Fact (rdfs:comment rdfs:range rdfs:Literal)
+Rule rdfs8 concluded (owl:DatatypeProperty rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs3 concluded (owl:DatatypeProperty rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type owl:DatatypeProperty)
+Rule rdfs10 concluded (owl:DatatypeProperty rdfs:subClassOf owl:DatatypeProperty) <-
+    Rule rdfs3 concluded (owl:DatatypeProperty rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type owl:DatatypeProperty)
+Rule rdfs3 concluded (owl:DatatypeProperty rdf:type rdfs:Class) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type owl:DatatypeProperty)
+Rule rdfs4b concluded (owl:DatatypeProperty rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type owl:DatatypeProperty)
+Rule rdfs3 concluded (OHxkG84ttHWwMKtd/Dgzcg== rdf:type rdfs:Literal) <-
+    Fact (rdfs:label rdfs:range rdfs:Literal)
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:label OHxkG84ttHWwMKtd/Dgzcg==)
+Rule rdfs4b concluded (OHxkG84ttHWwMKtd/Dgzcg== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:label OHxkG84ttHWwMKtd/Dgzcg==)
+Rule rdfs8 concluded (owl:ObjectProperty rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs3 concluded (owl:ObjectProperty rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type owl:ObjectProperty)
+Rule rdfs10 concluded (owl:ObjectProperty rdfs:subClassOf owl:ObjectProperty) <-
+    Rule rdfs3 concluded (owl:ObjectProperty rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type owl:ObjectProperty)
+Rule rdfs3 concluded (owl:ObjectProperty rdf:type rdfs:Class) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type owl:ObjectProperty)
+Rule rdfs4b concluded (owl:ObjectProperty rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type owl:ObjectProperty)
 Rule rdfs4a concluded (rdfs:comment rdf:type rdfs:Resource) <-
-    Fact (rdfs:comment rdfs:range rdfs:Literal)
-Rule rdfs2 concluded (rdfs:comment rdf:type rdf:Property) <-
+    Rule rdfD2 concluded (rdfs:comment rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:comment 'A vocabulary for representing some concepts from the International Patent Classification (IPC) scheme.  This is currently minimal.'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs6 concluded (rdfs:comment rdfs:subPropertyOf rdfs:comment) <-
+    Rule rdfD2 concluded (rdfs:comment rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:comment 'A vocabulary for representing some concepts from the International Patent Classification (IPC) scheme.  This is currently minimal.'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfD2 concluded (rdfs:comment rdf:type rdf:Property) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:comment 'A vocabulary for representing some concepts from the International Patent Classification (IPC) scheme.  This is currently minimal.'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs8 concluded (owl:Ontology rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs3 concluded (owl:Ontology rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/> rdf:type owl:Ontology)
+Rule rdfs10 concluded (owl:Ontology rdfs:subClassOf owl:Ontology) <-
+    Rule rdfs3 concluded (owl:Ontology rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/> rdf:type owl:Ontology)
+Rule rdfs3 concluded (owl:Ontology rdf:type rdfs:Class) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdf:type owl:Ontology)
+Rule rdfs4b concluded (owl:Ontology rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdf:type owl:Ontology)
+Rule rdfs6 concluded (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:subPropertyOf <http://data.epo.org/linked-data/def/ipc/classification>) <-
+    Rule rdfs2 concluded (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type rdf:Property) <-
+        Fact (rdfs:range rdfs:domain rdf:Property)
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:range <http://data.epo.org/linked-data/def/ipc/Classification>)
+Rule rdfs2 concluded (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type rdf:Property) <-
     Fact (rdfs:range rdfs:domain rdf:Property)
-    Fact (rdfs:comment rdfs:range rdfs:Literal)
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:range <http://data.epo.org/linked-data/def/ipc/Classification>)
+Rule rdfs4a concluded (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:type owl:ObjectProperty)
 Rule rdfs6 concluded (rdf:first rdfs:subPropertyOf rdf:first) <-
     Fact (rdf:first rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:first rdf:type rdfs:Resource) <-
     Fact (rdf:first rdfs:range rdfs:Resource)
-Rule rdfs4a concluded (e0cd4bb4dbaaf23013c63f1842798f7a rdf:type rdfs:Resource) <-
-    Fact (e0cd4bb4dbaaf23013c63f1842798f7a rdf:type rdfs:Literal)
-Rule rdfs4a concluded (rdfs:subPropertyOf rdf:type rdfs:Resource) <-
-    Rule rdf1 concluded (rdfs:subPropertyOf rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
-Rule rdfs6 concluded (rdfs:subPropertyOf rdfs:subPropertyOf rdfs:subPropertyOf) <-
-    Rule rdf1 concluded (rdfs:subPropertyOf rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
-Rule rdf1 concluded (rdfs:subPropertyOf rdf:type rdf:Property) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
+Rule rdfs9 concluded (99g+XHabuwsFE0RqKg26mQ== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (99g+XHabuwsFE0RqKg26mQ== rdf:type xsd:string)
+Rule rdfs4b concluded (99g+XHabuwsFE0RqKg26mQ== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:_64838 99g+XHabuwsFE0RqKg26mQ==)
 Rule rdfs6 concluded (rdf:object rdfs:subPropertyOf rdf:object) <-
     Fact (rdf:object rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:object rdf:type rdfs:Resource) <-
@@ -37,10 +84,10 @@ Rule rdfs10 concluded (rdf:Alt rdfs:subClassOf rdf:Alt) <-
     Rule rdfs2 concluded (rdf:Alt rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
         Fact (rdf:Alt rdfs:subClassOf rdfs:Container)
-Rule rdfs4a concluded (rdf:Alt rdf:type rdfs:Resource) <-
-    Fact (rdf:Alt rdfs:subClassOf rdfs:Container)
 Rule rdfs2 concluded (rdf:Alt rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (rdf:Alt rdfs:subClassOf rdfs:Container)
+Rule rdfs4a concluded (rdf:Alt rdf:type rdfs:Resource) <-
     Fact (rdf:Alt rdfs:subClassOf rdfs:Container)
 Rule rdfs11 concluded (rdf:Alt rdfs:subClassOf rdfs:Resource) <-
     Fact (rdf:Alt rdfs:subClassOf rdfs:Container)
@@ -48,15 +95,19 @@ Rule rdfs11 concluded (rdf:Alt rdfs:subClassOf rdfs:Resource) <-
         Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
             Fact (rdfs:subClassOf rdfs:range rdfs:Class)
             Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs6 concluded (dfe023c0968e0c6ea52dac648e58b941 rdfs:subPropertyOf dfe023c0968e0c6ea52dac648e58b941) <-
-    Rule rdfs3 concluded (dfe023c0968e0c6ea52dac648e58b941 rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-        Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> dfe023c0968e0c6ea52dac648e58b941)
-Rule rdfs3 concluded (dfe023c0968e0c6ea52dac648e58b941 rdf:type rdf:Property) <-
-    Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-    Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> dfe023c0968e0c6ea52dac648e58b941)
-Rule rdfs4a concluded (dfe023c0968e0c6ea52dac648e58b941 rdf:type rdfs:Resource) <-
-    Fact (dfe023c0968e0c6ea52dac648e58b941 rdf:type rdfs:Literal)
+Rule rdfs8 concluded (owl:Class rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs3 concluded (owl:Class rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type owl:Class)
+Rule rdfs10 concluded (owl:Class rdfs:subClassOf owl:Class) <-
+    Rule rdfs3 concluded (owl:Class rdf:type rdfs:Class) <-
+        Fact (rdf:type rdfs:range rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type owl:Class)
+Rule rdfs3 concluded (owl:Class rdf:type rdfs:Class) <-
+    Fact (rdf:type rdfs:range rdfs:Class)
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type owl:Class)
+Rule rdfs4b concluded (owl:Class rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type owl:Class)
 Rule rdfs8 concluded (rdf:List rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdf:List rdf:type rdfs:Class) <-
         Fact (rdfs:domain rdfs:range rdfs:Class)
@@ -83,6 +134,19 @@ Rule rdfs4b concluded (rdf:Statement rdf:type rdfs:Resource) <-
 Rule rdfs3 concluded (rdf:Statement rdf:type rdfs:Class) <-
     Fact (rdfs:domain rdfs:range rdfs:Class)
     Fact (rdf:object rdfs:domain rdf:Statement)
+Rule rdfs10 concluded (rdf:langString rdfs:subClassOf rdf:langString) <-
+    Rule rdfs2 concluded (rdf:langString rdf:type rdfs:Class) <-
+        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+        Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+Rule rdfs2 concluded (rdf:langString rdf:type rdfs:Class) <-
+    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+Rule rdfs11 concluded (rdf:langString rdfs:subClassOf rdfs:Resource) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
+            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+            Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
 Rule rdfs10 concluded (rdf:Seq rdfs:subClassOf rdf:Seq) <-
     Rule rdfs2 concluded (rdf:Seq rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
@@ -98,8 +162,6 @@ Rule rdfs11 concluded (rdf:Seq rdfs:subClassOf rdfs:Resource) <-
             Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
 Rule rdfs4a concluded (rdf:Seq rdf:type rdfs:Resource) <-
     Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs4a concluded (<http://www.example.com/ex/dog> rdf:type rdfs:Resource) <-
-    Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> 'Charlie')
 Rule rdfs10 concluded (rdfs:ContainerMembershipProperty rdfs:subClassOf rdfs:ContainerMembershipProperty) <-
     Rule rdfs2 concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
@@ -110,11 +172,16 @@ Rule rdfs11 concluded (rdfs:ContainerMembershipProperty rdfs:subClassOf rdfs:Res
         Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
             Fact (rdfs:subClassOf rdfs:range rdfs:Class)
             Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
-Rule rdfs4a concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Resource) <-
-    Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
 Rule rdfs2 concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
     Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
+Rule rdfs4a concluded (rdfs:ContainerMembershipProperty rdf:type rdfs:Resource) <-
+    Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
+Rule rdfs9 concluded (FprgbdbfhM6E/XIrfBfW8A== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (FprgbdbfhM6E/XIrfBfW8A== rdf:type rdf:langString)
+Rule rdfs4b concluded (FprgbdbfhM6E/XIrfBfW8A== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:label FprgbdbfhM6E/XIrfBfW8A==)
 Rule rdfs8 concluded (rdf:Property rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:range rdfs:Class)
@@ -126,83 +193,24 @@ Rule rdfs10 concluded (rdf:Property rdfs:subClassOf rdf:Property) <-
 Rule rdfs3 concluded (rdf:Property rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:range rdfs:Class)
     Fact (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property)
-Rule rdfs4b concluded (rdf:Property rdf:type rdfs:Resource) <-
-    Rule rdf1 concluded (rdfs:subPropertyOf rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
-Rule rdfs10 concluded (rdf:XMLLiteral rdfs:subClassOf rdf:XMLLiteral) <-
-    Rule rdfs2 concluded (rdf:XMLLiteral rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-        Fact (rdf:XMLLiteral rdfs:subClassOf rdfs:Literal)
-Rule rdfs4a concluded (rdf:XMLLiteral rdf:type rdfs:Resource) <-
-    Fact (rdf:XMLLiteral rdfs:subClassOf rdfs:Literal)
-Rule rdfs2 concluded (rdf:XMLLiteral rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-    Fact (rdf:XMLLiteral rdfs:subClassOf rdfs:Literal)
-Rule rdfs11 concluded (rdf:XMLLiteral rdfs:subClassOf rdfs:Resource) <-
-    Fact (rdf:XMLLiteral rdfs:subClassOf rdfs:Literal)
-    Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-            Fact (rdfs:range rdfs:range rdfs:Class)
-            Fact (rdfs:comment rdfs:range rdfs:Literal)
-Rule rdfs8 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdfs:subClassOf rdfs:Resource) <-
-    Rule rdfs3 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf sR7v/5U4W9BinwmHBgpTkQ==)
-Rule gl&rdfs10 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdfs:subClassOf 'Human') <-
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf 'Human')
-    Rule rdfs3 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf sR7v/5U4W9BinwmHBgpTkQ==)
-Rule rdfs10 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdfs:subClassOf sR7v/5U4W9BinwmHBgpTkQ==) <-
-    Rule rdfs3 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf sR7v/5U4W9BinwmHBgpTkQ==)
-Rule rdfs3 concluded (sR7v/5U4W9BinwmHBgpTkQ== rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf sR7v/5U4W9BinwmHBgpTkQ==)
-Rule rdfs4a concluded (sR7v/5U4W9BinwmHBgpTkQ== rdf:type rdfs:Resource) <-
-    Fact (sR7v/5U4W9BinwmHBgpTkQ== rdf:type rdfs:Literal)
 Rule rdfs4a concluded (rdf:nil rdf:type rdfs:Resource) <-
     Fact (rdf:nil rdf:type rdf:List)
 Rule rdfs4a concluded (rdfs:range rdf:type rdfs:Resource) <-
-    Rule rdf1 concluded (rdfs:range rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
+    Rule rdfD2 concluded (rdfs:range rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:range <http://data.epo.org/linked-data/def/ipc/Classification>)
 Rule rdfs6 concluded (rdfs:range rdfs:subPropertyOf rdfs:range) <-
-    Rule rdf1 concluded (rdfs:range rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-Rule rdf1 concluded (rdfs:range rdf:type rdf:Property) <-
-    Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-Rule gl&rdfs6 concluded (v8Ehha+ivytxWcW6Do4TeQ== rdfs:subPropertyOf 'Brayden') <-
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
-    Rule rdfs3 concluded (v8Ehha+ivytxWcW6Do4TeQ== rdf:type rdf:Property) <-
-        Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==)
-Rule rdfs6 concluded (v8Ehha+ivytxWcW6Do4TeQ== rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==) <-
-    Rule rdfs3 concluded (v8Ehha+ivytxWcW6Do4TeQ== rdf:type rdf:Property) <-
-        Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==)
-Rule rdfs3 concluded (v8Ehha+ivytxWcW6Do4TeQ== rdf:type rdf:Property) <-
-    Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==)
-Rule rdfs4b concluded (v8Ehha+ivytxWcW6Do4TeQ== rdf:type rdfs:Resource) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==)
-Rule rdfs6 concluded (c52148c7419d839c58ca43f49192c710 rdfs:subPropertyOf c52148c7419d839c58ca43f49192c710) <-
-    Rule rdfs3 concluded (c52148c7419d839c58ca43f49192c710 rdf:type rdf:Property) <-
-        Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf c52148c7419d839c58ca43f49192c710)
-Rule rdfs3 concluded (c52148c7419d839c58ca43f49192c710 rdf:type rdf:Property) <-
-    Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf c52148c7419d839c58ca43f49192c710)
-Rule rdfs4b concluded (c52148c7419d839c58ca43f49192c710 rdf:type rdfs:Resource) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf c52148c7419d839c58ca43f49192c710)
+    Rule rdfD2 concluded (rdfs:range rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:range <http://data.epo.org/linked-data/def/ipc/Classification>)
+Rule rdfD2 concluded (rdfs:range rdf:type rdf:Property) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:range <http://data.epo.org/linked-data/def/ipc/Classification>)
 Rule rdfs6 concluded (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:isDefinedBy) <-
     Rule rdfs2 concluded (rdfs:isDefinedBy rdf:type rdf:Property) <-
         Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
         Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
-Rule rdfs4a concluded (rdfs:isDefinedBy rdf:type rdfs:Resource) <-
-    Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
 Rule rdfs2 concluded (rdfs:isDefinedBy rdf:type rdf:Property) <-
     Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
+    Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
+Rule rdfs4a concluded (rdfs:isDefinedBy rdf:type rdfs:Resource) <-
     Fact (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso)
 Rule rdfs8 concluded (rdfs:Container rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
@@ -217,27 +225,27 @@ Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
     Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
 Rule rdfs4b concluded (rdfs:Container rdf:type rdfs:Resource) <-
     Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule rdfs8 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdfs:subClassOf rdfs:Resource) <-
-    Rule rdfs3 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Class) <-
+Rule rdfs8 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdfs:subClassOf rdfs:Resource) <-
+    Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
-Rule rdfs10 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2) <-
-    Rule rdfs3 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Class) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs10 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>) <-
+    Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
-Rule rdfs3 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Class) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
-Rule rdfs4b concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Resource) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs4b concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
 Rule rdfs10 concluded (rdf:Bag rdfs:subClassOf rdf:Bag) <-
     Rule rdfs2 concluded (rdf:Bag rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
         Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
-Rule rdfs4a concluded (rdf:Bag rdf:type rdfs:Resource) <-
-    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
 Rule rdfs2 concluded (rdf:Bag rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
+Rule rdfs4a concluded (rdf:Bag rdf:type rdfs:Resource) <-
     Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
 Rule rdfs11 concluded (rdf:Bag rdfs:subClassOf rdfs:Resource) <-
     Fact (rdf:Bag rdfs:subClassOf rdfs:Container)
@@ -245,99 +253,104 @@ Rule rdfs11 concluded (rdf:Bag rdfs:subClassOf rdfs:Resource) <-
         Rule rdfs3 concluded (rdfs:Container rdf:type rdfs:Class) <-
             Fact (rdfs:subClassOf rdfs:range rdfs:Class)
             Fact (rdf:Seq rdfs:subClassOf rdfs:Container)
-Rule gl&rdfs6 concluded (axXuZP9GWwY9revML4idtg== rdfs:subPropertyOf 'Charlie') <-
-    Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> 'Charlie')
-    Rule rdfs3 concluded (axXuZP9GWwY9revML4idtg== rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-        Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> axXuZP9GWwY9revML4idtg==)
-Rule rdfs6 concluded (axXuZP9GWwY9revML4idtg== rdfs:subPropertyOf axXuZP9GWwY9revML4idtg==) <-
-    Rule rdfs3 concluded (axXuZP9GWwY9revML4idtg== rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-        Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> axXuZP9GWwY9revML4idtg==)
-Rule rdfs3 concluded (axXuZP9GWwY9revML4idtg== rdf:type rdf:Property) <-
-    Fact (<http://www.example.com/ex/mamal> rdfs:range rdf:Property)
-    Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> axXuZP9GWwY9revML4idtg==)
-Rule rdfs4a concluded (axXuZP9GWwY9revML4idtg== rdf:type rdfs:Resource) <-
-    Fact (axXuZP9GWwY9revML4idtg== rdf:type rdfs:Literal)
-Rule rdfs6 concluded (<http://www.example.com/ex/person> rdfs:subPropertyOf <http://www.example.com/ex/person>) <-
-    Rule rdfs2 concluded (<http://www.example.com/ex/person> rdf:type rdf:Property) <-
-        Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==)
-Rule rdfs2 concluded (<http://www.example.com/ex/person> rdf:type rdf:Property) <-
-    Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf v8Ehha+ivytxWcW6Do4TeQ==)
-Rule rdfs10 concluded (<http://www.example.com/ex/person> rdfs:subClassOf <http://www.example.com/ex/person>) <-
-    Rule rdfs2 concluded (<http://www.example.com/ex/person> rdf:type rdfs:Class) <-
-        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf 'Human')
-Rule rdfs2 concluded (<http://www.example.com/ex/person> rdf:type rdfs:Class) <-
-    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf 'Human')
-Rule rdfs11 concluded (<http://www.example.com/ex/person> rdfs:subClassOf rdfs:Resource) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
-    Rule rdfs8 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Class) <-
-            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
-Rule rdfs4a concluded (<http://www.example.com/ex/person> rdf:type rdfs:Resource) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
-Rule rdfs6 concluded (rdfs:label rdfs:subPropertyOf rdfs:label) <-
-    Rule rdfs2 concluded (rdfs:label rdf:type rdf:Property) <-
-        Fact (rdfs:range rdfs:domain rdf:Property)
-        Fact (rdfs:label rdfs:range rdfs:Literal)
+Rule rdfs4a concluded (<http://data.epo.org/linked-data/def/ipc/> rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdf:type owl:Ontology)
+Rule rdfs9 concluded (kABcnvpgmLqpVuHEK0nVuQ== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (kABcnvpgmLqpVuHEK0nVuQ== rdf:type xsd:string)
+Rule rdfs9 concluded (kABcnvpgmLqpVuHEK0nVuQ== rdf:type rdfs:Resource) <-
+    Rule rdfs11 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+        Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+        Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
+            Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
+                Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+                Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (kABcnvpgmLqpVuHEK0nVuQ== rdf:type xsd:string)
 Rule rdfs4a concluded (rdfs:label rdf:type rdfs:Resource) <-
-    Fact (rdfs:label rdfs:range rdfs:Literal)
-Rule rdfs2 concluded (rdfs:label rdf:type rdf:Property) <-
-    Fact (rdfs:range rdfs:domain rdf:Property)
-    Fact (rdfs:label rdfs:range rdfs:Literal)
+    Rule rdfD2 concluded (rdfs:label rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:label 'IPC ontology'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs6 concluded (rdfs:label rdfs:subPropertyOf rdfs:label) <-
+    Rule rdfD2 concluded (rdfs:label rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:label 'IPC ontology'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfD2 concluded (rdfs:label rdf:type rdf:Property) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:label 'IPC ontology'^^http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
+Rule rdfs10 concluded (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://data.epo.org/linked-data/def/ipc/Classification>) <-
+    Rule rdfs2 concluded (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type rdfs:Class) <-
+        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs2 concluded (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type rdfs:Class) <-
+    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs11 concluded (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+    Rule rdfs8 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Class) <-
+            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+            Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs4b concluded (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdfs:range <http://data.epo.org/linked-data/def/ipc/Classification>)
+Rule rdfs9 concluded (tyh+zhae25UbsyShsfhEAA== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (tyh+zhae25UbsyShsfhEAA== rdf:type rdf:langString)
+Rule rdfs4b concluded (tyh+zhae25UbsyShsfhEAA== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:label tyh+zhae25UbsyShsfhEAA==)
+Rule rdfs3 concluded (fFaZZynhxVpoIR4wvmHH8A== rdf:type rdfs:Literal) <-
+    Fact (rdfs:comment rdfs:range rdfs:Literal)
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:comment fFaZZynhxVpoIR4wvmHH8A==)
+Rule rdfs4b concluded (fFaZZynhxVpoIR4wvmHH8A== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:comment fFaZZynhxVpoIR4wvmHH8A==)
 Rule rdfs6 concluded (rdf:predicate rdfs:subPropertyOf rdf:predicate) <-
     Fact (rdf:predicate rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:predicate rdf:type rdfs:Resource) <-
     Fact (rdf:predicate rdfs:range rdfs:Resource)
-Rule rdfs4a concluded (<http://www.example.com/ex/mamal> rdf:type rdfs:Resource) <-
-    Rule rdf1 concluded (<http://www.example.com/ex/mamal> rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> 'Charlie')
-Rule rdfs6 concluded (<http://www.example.com/ex/mamal> rdfs:subPropertyOf <http://www.example.com/ex/mamal>) <-
-    Rule rdf1 concluded (<http://www.example.com/ex/mamal> rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> 'Charlie')
-Rule rdf1 concluded (<http://www.example.com/ex/mamal> rdf:type rdf:Property) <-
-    Fact (<http://www.example.com/ex/dog> <http://www.example.com/ex/mamal> 'Charlie')
-Rule rdfs4a concluded (rdfs:subClassOf rdf:type rdfs:Resource) <-
-    Rule rdf1 concluded (rdfs:subClassOf rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf 'Human')
-Rule rdfs6 concluded (rdfs:subClassOf rdfs:subPropertyOf rdfs:subClassOf) <-
-    Rule rdf1 concluded (rdfs:subClassOf rdf:type rdf:Property) <-
-        Fact (<http://www.example.com/ex/person> rdfs:subClassOf 'Human')
-Rule rdf1 concluded (rdfs:subClassOf rdf:type rdf:Property) <-
-    Fact (<http://www.example.com/ex/person> rdfs:subClassOf 'Human')
 Rule rdfs10 concluded (rdfs:Resource rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Resource rdf:type rdfs:Class) <-
         Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-        Rule rdfs8 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdfs:subClassOf rdfs:Resource) <-
-            Rule rdfs3 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Class) <-
+        Rule rdfs8 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdfs:subClassOf rdfs:Resource) <-
+            Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Class) <-
                 Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-                Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
+                Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
 Rule rdfs3 concluded (rdfs:Resource rdf:type rdfs:Class) <-
     Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-    Rule rdfs8 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdfs:subClassOf rdfs:Resource) <-
-        Rule rdfs3 concluded (e8fcf06ffe7c965cace1ce3db552eca2 rdf:type rdfs:Class) <-
+    Rule rdfs8 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#Concept> rdf:type rdfs:Class) <-
             Fact (rdfs:subClassOf rdfs:range rdfs:Class)
-            Fact (<http://www.example.com/ex/person> rdfs:subClassOf e8fcf06ffe7c965cace1ce3db552eca2)
-Rule rdfs4b concluded (rdfs:Resource rdf:type rdfs:Resource) <-
-    Rule rdfs4b concluded ('Brayden' rdf:type rdfs:Resource) <-
-        Fact (<http://www.example.com/ex/person> rdfs:subPropertyOf 'Brayden')
+            Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept>)
+Rule rdfs6 concluded (<http://www.w3.org/2004/02/skos/core#notation> rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation>) <-
+    Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#notation> rdf:type rdf:Property) <-
+        Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
+        Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation>)
+Rule rdfs3 concluded (<http://www.w3.org/2004/02/skos/core#notation> rdf:type rdf:Property) <-
+    Fact (rdfs:subPropertyOf rdfs:range rdf:Property)
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation>)
+Rule rdfs4b concluded (<http://www.w3.org/2004/02/skos/core#notation> rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation>)
 Rule rdfs6 concluded (rdf:rest rdfs:subPropertyOf rdf:rest) <-
     Fact (rdf:rest rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:rest rdf:type rdfs:Resource) <-
     Fact (rdf:rest rdfs:range rdf:List)
+Rule rdfs4a concluded (rdf:_857 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_857 rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:_857 'Test2')
+Rule rdfs6 concluded (rdf:_857 rdfs:subPropertyOf rdf:_857) <-
+    Rule rdfD2 concluded (rdf:_857 rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:_857 'Test2')
+Rule rdfD2 concluded (rdf:_857 rdf:type rdf:Property) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/classification> rdf:_857 'Test2')
+Rule rdfs9 concluded (lo79DFehZbqH8JOve0rnOA== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (lo79DFehZbqH8JOve0rnOA== rdf:type rdf:langString)
+Rule rdfs4b concluded (lo79DFehZbqH8JOve0rnOA== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:comment lo79DFehZbqH8JOve0rnOA==)
+Rule rdfs4a concluded (VgyZuhrcXV5uYspKkJVO7g== rdf:type rdfs:Resource) <-
+    Fact (VgyZuhrcXV5uYspKkJVO7g== rdf:type rdf:langString)
+Rule rdfs9 concluded (VgyZuhrcXV5uYspKkJVO7g== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (VgyZuhrcXV5uYspKkJVO7g== rdf:type rdf:langString)
 Rule rdfs6 concluded (rdf:value rdfs:subPropertyOf rdf:value) <-
     Fact (rdf:value rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:value rdf:type rdfs:Resource) <-
     Fact (rdf:value rdfs:range rdfs:Resource)
-Rule rdfs6 concluded (rdf:type rdfs:subPropertyOf rdf:type) <-
-    Fact (rdf:type rdf:type rdf:Property)
-Rule rdfs4a concluded (rdf:type rdf:type rdfs:Resource) <-
-    Fact (rdf:type rdfs:range rdfs:Class)
 Rule rdfs8 concluded (rdfs:Class rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Class rdf:type rdfs:Class) <-
         Fact (rdfs:domain rdfs:range rdfs:Class)
@@ -354,16 +367,49 @@ Rule rdfs4b concluded (rdfs:Class rdf:type rdfs:Resource) <-
 Rule rdfs8 concluded (rdfs:Datatype rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Datatype rdf:type rdfs:Class) <-
         Fact (rdf:type rdfs:range rdfs:Class)
-        Fact (rdf:XMLLiteral rdf:type rdfs:Datatype)
+        Fact (rdf:langString rdf:type rdfs:Datatype)
 Rule rdfs10 concluded (rdfs:Datatype rdfs:subClassOf rdfs:Datatype) <-
     Rule rdfs3 concluded (rdfs:Datatype rdf:type rdfs:Class) <-
         Fact (rdf:type rdfs:range rdfs:Class)
-        Fact (rdf:XMLLiteral rdf:type rdfs:Datatype)
+        Fact (rdf:langString rdf:type rdfs:Datatype)
 Rule rdfs3 concluded (rdfs:Datatype rdf:type rdfs:Class) <-
     Fact (rdf:type rdfs:range rdfs:Class)
-    Fact (rdf:XMLLiteral rdf:type rdfs:Datatype)
-Rule rdfs4b concluded (rdfs:Datatype rdf:type rdfs:Resource) <-
-    Fact (rdf:XMLLiteral rdf:type rdfs:Datatype)
+    Fact (rdf:langString rdf:type rdfs:Datatype)
+Rule rdfs4a concluded (rdf:_64838 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_64838 rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:_64838 'Test3')
+Rule rdfs6 concluded (rdf:_64838 rdfs:subPropertyOf rdf:_64838) <-
+    Rule rdfD2 concluded (rdf:_64838 rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:_64838 'Test3')
+Rule rdfD2 concluded (rdf:_64838 rdf:type rdf:Property) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/Classification> rdf:_64838 'Test3')
+Rule rdfs6 concluded (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:subPropertyOf <http://data.epo.org/linked-data/def/ipc/symbol>) <-
+    Rule rdfs2 concluded (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type rdf:Property) <-
+        Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
+        Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation>)
+Rule rdfs2 concluded (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type rdf:Property) <-
+    Fact (rdfs:subPropertyOf rdfs:domain rdf:Property)
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation>)
+Rule rdfs4a concluded (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:type owl:DatatypeProperty)
+Rule rdfs4a concluded (rdf:_10 rdf:type rdfs:Resource) <-
+    Rule rdfD2 concluded (rdf:_10 rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:_10 'Test1')
+Rule rdfs6 concluded (rdf:_10 rdfs:subPropertyOf rdf:_10) <-
+    Rule rdfD2 concluded (rdf:_10 rdf:type rdf:Property) <-
+        Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:_10 'Test1')
+Rule rdfD2 concluded (rdf:_10 rdf:type rdf:Property) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:_10 'Test1')
+Rule rdfs9 concluded (BI5gdxuPYeJoyl/rGgyrYA== rdf:type rdfs:Literal) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Fact (BI5gdxuPYeJoyl/rGgyrYA== rdf:type xsd:string)
+Rule rdfs4b concluded (BI5gdxuPYeJoyl/rGgyrYA== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/symbol> rdf:_10 BI5gdxuPYeJoyl/rGgyrYA==)
+Rule rdfs3 concluded (+TY1B0roqMot8LIxEJusLw== rdf:type rdfs:Literal) <-
+    Fact (rdfs:comment rdfs:range rdfs:Literal)
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:comment +TY1B0roqMot8LIxEJusLw==)
+Rule rdfs4b concluded (+TY1B0roqMot8LIxEJusLw== rdf:type rdfs:Resource) <-
+    Fact (<http://data.epo.org/linked-data/def/ipc/> rdfs:comment +TY1B0roqMot8LIxEJusLw==)
 Rule rdfs6 concluded (rdf:subject rdfs:subPropertyOf rdf:subject) <-
     Fact (rdf:subject rdf:type rdf:Property)
 Rule rdfs4a concluded (rdf:subject rdf:type rdfs:Resource) <-
@@ -372,30 +418,46 @@ Rule rdfs6 concluded (rdfs:member rdfs:subPropertyOf rdfs:member) <-
     Rule rdfs2 concluded (rdfs:member rdf:type rdf:Property) <-
         Fact (rdfs:range rdfs:domain rdf:Property)
         Fact (rdfs:member rdfs:range rdfs:Resource)
-Rule rdfs4a concluded (rdfs:member rdf:type rdfs:Resource) <-
-    Fact (rdfs:member rdfs:range rdfs:Resource)
 Rule rdfs2 concluded (rdfs:member rdf:type rdf:Property) <-
     Fact (rdfs:range rdfs:domain rdf:Property)
+    Fact (rdfs:member rdfs:range rdfs:Resource)
+Rule rdfs4a concluded (rdfs:member rdf:type rdfs:Resource) <-
     Fact (rdfs:member rdfs:range rdfs:Resource)
 Rule rdfs6 concluded (rdfs:seeAlso rdfs:subPropertyOf rdfs:seeAlso) <-
     Rule rdfs2 concluded (rdfs:seeAlso rdf:type rdf:Property) <-
         Fact (rdfs:range rdfs:domain rdf:Property)
         Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
-Rule rdfs4a concluded (rdfs:seeAlso rdf:type rdfs:Resource) <-
-    Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
 Rule rdfs2 concluded (rdfs:seeAlso rdf:type rdf:Property) <-
     Fact (rdfs:range rdfs:domain rdf:Property)
     Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
+Rule rdfs4a concluded (rdfs:seeAlso rdf:type rdfs:Resource) <-
+    Fact (rdfs:seeAlso rdfs:range rdfs:Resource)
 Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
     Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-        Fact (rdfs:range rdfs:range rdfs:Class)
-        Fact (rdfs:comment rdfs:range rdfs:Literal)
+        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+        Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
 Rule rdfs10 concluded (rdfs:Literal rdfs:subClassOf rdfs:Literal) <-
     Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-        Fact (rdfs:range rdfs:range rdfs:Class)
-        Fact (rdfs:comment rdfs:range rdfs:Literal)
+        Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+        Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
 Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
-    Fact (rdfs:range rdfs:range rdfs:Class)
-    Fact (rdfs:comment rdfs:range rdfs:Literal)
-Rule rdfs4b concluded (rdfs:Literal rdf:type rdfs:Resource) <-
-    Fact (c52148c7419d839c58ca43f49192c710 rdf:type rdfs:Literal)
+    Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+Rule rdfs4a concluded (nikuKCn7hxuvK8ioG8T1xg== rdf:type rdfs:Resource) <-
+    Fact (nikuKCn7hxuvK8ioG8T1xg== rdf:type rdf:langString)
+Rule rdfs9 concluded (nikuKCn7hxuvK8ioG8T1xg== rdf:type rdfs:Literal) <-
+    Fact (rdf:langString rdfs:subClassOf rdfs:Literal)
+    Fact (nikuKCn7hxuvK8ioG8T1xg== rdf:type rdf:langString)
+Rule rdfs10 concluded (xsd:string rdfs:subClassOf xsd:string) <-
+    Rule rdfs2 concluded (xsd:string rdf:type rdfs:Class) <-
+        Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+        Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+Rule rdfs2 concluded (xsd:string rdf:type rdfs:Class) <-
+    Fact (rdfs:subClassOf rdfs:domain rdfs:Class)
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+Rule rdfs11 concluded (xsd:string rdfs:subClassOf rdfs:Resource) <-
+    Fact (xsd:string rdfs:subClassOf rdfs:Literal)
+    Rule rdfs8 concluded (rdfs:Literal rdfs:subClassOf rdfs:Resource) <-
+        Rule rdfs3 concluded (rdfs:Literal rdf:type rdfs:Class) <-
+            Fact (rdfs:subClassOf rdfs:range rdfs:Class)
+            Fact (rdf:langString rdfs:subClassOf rdfs:Literal)

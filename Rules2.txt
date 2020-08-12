@@ -1,5 +1,9 @@
-[rdf1: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
+[rdfD2: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
 
+//-----------------------------RDFS Entailment Rules-----------------------------
+-> ( xsd:string  rdf:type rdfs:Datatype ) .
+-> ( rdf:langString  rdf:type rdfs:Datatype ) . 
+  
 [rdfs2: (?a rdfs:domain ?x), (?u ?a ?y) -> (?u rdf:type ?x)]
 
 [rdfs3: (?a rdfs:range ?x), ( ?u ?a ?v) -> ( ?v rdf:type ?x)]
@@ -25,11 +29,3 @@
 [rdfs12: (?u rdf:type rdfs:ContainerMembershipProperty) -> (?u rdfs:subPropertyOf rdfs:member)]
 
 [rdfs13: (?u rdf:type rdfs:Datatype) -> (?u rdfs:subClassOf rdfs:Literal)]
-
-//[test: (?u, ?a, ?b), isBNode(?b) -> (?b rdf:type rdf:Property)]
-
-[gl&rdfs6: (?u ?a ?l), isLiteral(?l), makeSkolem(?b, ?u, ?a, ?l), (?b rdf:type rdf:Property) -> (?b rdfs:subPropertyOf ?b), (?b rdfs:subPropertyOf ?l)]
-
-//[test2: (?u, ?a, ?b), isBNode(?b) -> (?b rdf:type rdfs:Class)]
-
-[gl&rdfs10: (?u ?a ?l), isLiteral(?l), makeSkolem(?b, ?u, ?a, ?l), (?b rdf:type rdfs:Class) -> (?b rdfs:subClassOf ?b), (?b rdfs:subClassOf ?l)]

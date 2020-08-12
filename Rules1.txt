@@ -1,3 +1,5 @@
+//All rules taken from official w3c website -- https://www.w3.org/TR/rdf-mt/#rules.
+
 //-----------------------------RDF axiomatic triples--------------------------------
 -> (rdf:type rdf:type rdf:Property) .
 -> (rdf:subject rdf:type rdf:Property) .
@@ -50,13 +52,13 @@
 
 -> (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso) .
 
--> (rdf:XMLLiteral rdf:type rdfs:Datatype) .
--> (rdf:XMLLiteral rdfs:subClassOf rdfs:Literal) .
 -> (rdfs:Datatype rdfs:subClassOf rdfs:Class) .
 
-//axiomatic triples of rdf:_1 and similar
+//container membership axiomatic triples
 [rdf_number: (?u ?a ?x), propertyCheck(?a) -> (?a rdf:type rdf:Property), (?a rdf:type rdfs:ContainerMembershipProperty), (?a rdfs:range rdfs:Resource), (?a rdfs:domain rdfs:Resource)]
 
-[rdf2: (?u ?a ?l), isLiteral(?l), isWellFormedXML(?l), makeSkolem(?b, ?u, ?a, ?l) -> (?b rdf:type rdf:XMLLiteral)]
 
-[rdfs1&lg: (?u ?a ?l), isLiteral(?l), makeSkolem(?b, ?u, ?a, ?l) -> (?u ?a ?b), (?b rdf:type rdfs:Literal)]
+//-----------------------------RDF/Simple Entailment Rules------------------------------
+//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+[test: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]

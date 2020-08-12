@@ -8,8 +8,6 @@
 -> (rdf:first rdf:type rdf:Property) .
 -> (rdf:rest rdf:type rdf:Property) .
 -> (rdf:value rdf:type rdf:Property) .
-//-> (rdf:_1 rdf:type rdf:Property) .
-//-> (rdf:_2 rdf:type rdf:Property) .
 -> (rdf:nil rdf:type rdf:List) .
 
 //-----------------------------RDFS axiomatic triples--------------------------------
@@ -54,37 +52,20 @@
 
 -> (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso) .
 
--> (rdf:XMLLiteral rdf:type rdfs:Datatype) .
--> (rdf:XMLLiteral rdfs:subClassOf rdfs:Literal) .
 -> (rdfs:Datatype rdfs:subClassOf rdfs:Class) .
-
-//-> (rdf:_1 rdf:type rdfs:ContainerMembershipProperty) .
-//-> (rdf:_1 rdfs:domain rdfs:Resource) .
-//-> (rdf:_1 rdfs:range rdfs:Resource) .
-//-> (rdf:_2 rdf:type rdfs:ContainerMembershipProperty) .
-//-> (rdf:_2 rdfs:domain rdfs:Resource) .
-//-> (rdf:_2 rdfs:range rdfs:Resource) .
 
 //axiomatic triples of rdf:_1 and similar
 [rdf_number: (?u ?a ?x), propertyCheck(?a) -> (?a rdf:type rdf:Property), (?a rdf:type rdfs:ContainerMembershipProperty), (?a rdfs:range rdfs:Resource), (?a rdfs:domain rdfs:Resource)]
 
-//-----------------------------Simple entailment--------------------------------commented out
-//[se1: (?u ?a ?x) -> (?u ?a ?b)]
-//[se2: (?u ?a ?x) -> (?b ?a ?x)]
 
-//-----------------------------Literal generalization and instantiation rules----commented out
-//[lg: (?u ?a ?l), isLiteral(?l) -> (?u ?a ?b)]  
-//[gl: (?u ?a ?b), isBNode(?b) -> (?u ?a ?l)]
-
-//-----------------------------RDF Entailment Rules------------------------------
-[rdf1: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
-//[rdf2&lg&old: (?u ?a ?l), isLiteral(?l), isWellFormedXML(?l), makeTemp(?b) -> (?u ?a ?b), (?b rdf:type rdf:XMLLiteral)]
-//[rdf2: (?u ?a ?l), isLiteral(?l), isWellFormedXML(?l), makeSkolem(?b, ?u, ?a, ?l) -> (?b rdf:type rdf:XMLLiteral)]
+//-----------------------------RDF/Simple Entailment Rules------------------------------
+[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+[rdfD2: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
 
 //-----------------------------RDFS Entailment Rules-----------------------------
-//[rdfs1&lg&old: (?u ?a ?l), isLiteral(?l), makeTemp(?b) -> (?u ?a ?b), (?b rdf:type rdfs:Literal)]
-//[rdfs1&lg: (?u ?a ?l), isLiteral(?l), makeSkolem(?b, ?u, ?a, ?l) -> (?u ?a ?b), (?b rdf:type rdfs:Literal)]
-  
+-> ( xsd:string  rdf:type rdfs:Datatype ) .
+-> ( rdf:langString  rdf:type rdfs:Datatype ) . 
   
 [rdfs2: (?a rdfs:domain ?x), (?u ?a ?y) -> (?u rdf:type ?x)]
 
@@ -112,29 +93,9 @@
 
 [rdfs13: (?u rdf:type rdfs:Datatype) -> (?u rdfs:subClassOf rdfs:Literal)]
 
-
-
-
-
-
-//Notes:
-//se1 and se2 will run infinitely and are only included for completeness. They seem to be more theoretical in nature.  The indented text is from the w3c official website 
-//explaining why they should only be used in a modified state.  Note that no spelling has been changed.
-
-	//It is easy to see that S is an instance of E if and only if one can derive E from S by applying these rules in a suitable sequence; the rule applications required can be discovered by 
-	//examination of the instance mapping. So, by the interpolation lemma, S simply entails E iff one can derive (a graph containing) E from S by the application of these rules. However, it 
-	//is also clear that applying these rules naively would not result in an efficient search process, since the rules will not terminate and can produce arbitrarily many redundant derivations of 
-	//equivalent triples.
-	
-	//The general problem of determining simple entailment between arbitrary RDF graphs is decideable but NP-complete. This can be shown by encoding the problem of detecting a subgraph of 
-	//an arbitrary directed graph as an RDF entailment, using only blank nodes to represent the graph (observation due to Jeremy Carroll.)
-	
-	//Subsequent rule sets for detecting RDF and RDFS entailment use a special case of rule se1 which applies only to literals:
-	
-//lg rule will probably not be needed except when combined with other rules involving a literal as seen in rdfs1 and rdf2.
-
-//gl I believe will only be needed if a custom rule is made that adds a blank node in the objects place replacing a literal. It is recommended that
-	//it be used in rule rdfs10 and rdfs6 on the w3c official website but I don't see how this would ever produce new information so it was not included. 
-
-//rdf2 does not actually check if the literal follows xml syntax but instead it checks to see if it claims to be.  Literals that will cause this rule to fire will have the parsetype: "Literal" 
-	//in the ontology but may or may not be well-typed xml.  If this is needed see class CustomBuiltIn.
+//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+//[GrdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString) -> (?l rdf:type rdf:langString)]
+//-> ( xsd:string  rdf:type rdfs:Datatype ) .
+//-> ( rdf:langString  rdf:type rdfs:Datatype ) .
+//[GrdfD1: (?x ?a ?l), isLiteral(?l), testGrdfD1(?l) -> ]

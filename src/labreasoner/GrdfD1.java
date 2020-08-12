@@ -1,31 +1,47 @@
 package labreasoner;
 
 import org.apache.jena.graph.Node;
+import org.apache.jena.ontology.OntModel;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.reasoner.rulesys.Builtin;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 
-public class TestForGL implements Builtin{
+public class GrdfD1 implements Builtin{
+	
+	OntModel ontModel;
+	
+	public GrdfD1(OntModel ontModel) {
+		this.ontModel = ontModel;
+	}
 	
 	@Override
 	public boolean bodyCall(Node[] arg0, int arg1, RuleContext arg2) {
 		
-		if(arg0[0].isBlank()) {
-			if(arg0[1].toString().contentEquals("http://www.w3.org/2000/01/rdf-schema#subPropertyOf")) {
-				
-			}
-		}
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("\"");
+		sb.append(arg0[0].getLiteralValue());
+		sb.append("\"^^");
+		sb.append(arg0[0].getLiteralDatatypeURI());
+		
+		Resource lit = ontModel.createResource(sb.toString());
+		Property property = ontModel.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+		Resource ddd = ontModel.createResource(arg0[0].getLiteralDatatypeURI());
+		
+		ontModel.add(lit, property, ddd);
 		
 		return true;
 	}
 
 	@Override
 	public int getArgLength() {
-		return 3;
+		return 1;
 	}
 
 	@Override
 	public String getName() {
-		return "testForGL";
+		return "testGrdfD1";
 	}
 
 	@Override
