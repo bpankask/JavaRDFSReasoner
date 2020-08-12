@@ -56,7 +56,7 @@ public class Main {
 		final long startTime = System.nanoTime();
 		
 		//input file to be reasoned on
-		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\geoL.ttl";
+		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\animalTest.ttl";
 		//text file containing rules and axioms
 		String ruleFile = "Rules.txt";
 		//output file used to trace triples that were added during reasoning

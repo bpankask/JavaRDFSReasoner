@@ -1,37 +1,18 @@
+@prefix ANIMALS: <http://www.some-fictitious-zoo.com/rdf#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ipc:   <http://data.epo.org/linked-data/def/ipc/> .
 
 rdfs:domain  a              rdfs:Resource , rdf:Property ;
         rdfs:domain         rdf:Property ;
         rdfs:range          rdfs:Class ;
         rdfs:subPropertyOf  rdfs:domain .
 
-owl:DatatypeProperty  a  rdfs:Class , rdfs:Resource ;
-        rdfs:subClassOf  rdfs:Resource , owl:DatatypeProperty .
-
-owl:ObjectProperty  a    rdfs:Class , rdfs:Resource ;
-        rdfs:subClassOf  rdfs:Resource , owl:ObjectProperty .
-
-rdfs:comment  a             rdfs:Resource , rdf:Property ;
+rdfs:comment  a             rdf:Property , rdfs:Resource ;
         rdfs:domain         rdfs:Resource ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  rdfs:comment .
-
-owl:Ontology  a          rdfs:Class , rdfs:Resource ;
-        rdfs:subClassOf  rdfs:Resource , owl:Ontology .
-
-ipc:classification  a       rdf:Property , rdfs:Resource , owl:ObjectProperty ;
-        rdf:_857            "Test2" ;
-        rdf:_857            [ a  rdfs:Literal , rdfs:Resource , xsd:string ] ;
-        rdfs:comment        "The property :classification is a general purpose property that release a resource to an IPC classification."@en ;
-        rdfs:comment        [ a  rdfs:Resource , rdfs:Literal , rdf:langString ] ;
-        rdfs:label          "classification"@en ;
-        rdfs:label          [ a  rdfs:Resource , rdfs:Literal , rdf:langString ] ;
-        rdfs:range          ipc:Classification ;
-        rdfs:subPropertyOf  ipc:classification .
 
 rdf:first  a                rdfs:Resource , rdf:Property ;
         rdfs:domain         rdf:List ;
@@ -51,8 +32,13 @@ rdfs:subPropertyOf  a       rdf:Property , rdfs:Resource ;
 rdf:Alt  a               rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdf:Alt , rdfs:Resource , rdfs:Container .
 
-owl:Class  a             rdfs:Class , rdfs:Resource ;
-        rdfs:subClassOf  rdfs:Resource , owl:Class .
+<http://www.some-fictitious-zoo.com/mammals/lion>
+        a                rdfs:Resource ;
+        ANIMALS:class    "Mammal" ;
+        ANIMALS:class    _:b0 ;
+        ANIMALS:name     "Lion"^^rdf:XMLLiteral ;
+        ANIMALS:species  "Panthera leo"@lt ;
+        ANIMALS:species  _:b1 .
 
 rdf:List  a              rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdfs:Resource , rdf:List .
@@ -68,7 +54,10 @@ rdf:Seq  a               rdfs:Class , rdfs:Resource ;
 
 rdfs:ContainerMembershipProperty
         a                rdfs:Class , rdfs:Resource ;
-        rdfs:subClassOf  rdfs:ContainerMembershipProperty , rdfs:Resource , rdf:Property .
+        rdfs:subClassOf  rdfs:Resource , rdfs:ContainerMembershipProperty , rdf:Property .
+
+ANIMALS:class  a            rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf  ANIMALS:class .
 
 rdf:Property  a          rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdfs:Resource , rdf:Property .
@@ -85,40 +74,46 @@ rdfs:isDefinedBy  a         rdf:Property , rdfs:Resource ;
         rdfs:range          rdfs:Resource ;
         rdfs:subPropertyOf  rdfs:isDefinedBy , rdfs:seeAlso .
 
+<http://www.some-fictitious-zoo.com/arachnids/tarantula>
+        a                rdfs:Resource ;
+        ANIMALS:class    "Arachnid" ;
+        ANIMALS:class    [ a  rdfs:Literal , rdfs:Resource , xsd:string ] ;
+        ANIMALS:name     "Tarantula" ;
+        ANIMALS:name     [ a  rdfs:Literal , rdfs:Resource , xsd:string ] ;
+        ANIMALS:species  "Avicularia avicularia"@lt ;
+        ANIMALS:species  [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] .
+
+<http://www.some-fictitious-zoo.com/mammals/hippopotamus>
+        a                rdfs:Resource ;
+        ANIMALS:class    "Mammal" ;
+        ANIMALS:class    _:b0 ;
+        ANIMALS:name     "Hippopotamus" ;
+        ANIMALS:name     [ a  rdfs:Literal , rdfs:Resource , xsd:string ] ;
+        ANIMALS:species  "Hippopotamus amphibius"@lt ;
+        ANIMALS:species  [ a  rdfs:Resource , rdfs:Literal , rdf:langString ] .
+
 rdfs:Container  a        rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdfs:Resource , rdfs:Container .
 
-<http://www.w3.org/2004/02/skos/core#Concept>
-        a                rdfs:Class , rdfs:Resource ;
-        rdfs:subClassOf  rdfs:Resource , <http://www.w3.org/2004/02/skos/core#Concept> .
+_:b0    a       rdfs:Literal , rdfs:Resource , xsd:string .
+
+_:b1    a       rdfs:Literal , rdfs:Resource , rdf:langString .
 
 rdf:Bag  a               rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdf:Bag , rdfs:Resource , rdfs:Container .
 
-ipc:    a             rdfs:Resource , owl:Ontology ;
-        rdfs:comment  "A vocabulary for representing some concepts from the International Patent Classification (IPC) scheme.  This is currently minimal."@en ;
-        rdfs:comment  [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] ;
-        rdfs:label    "IPC ontology"@en ;
-        rdfs:label    [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] .
-
-rdfs:label  a               rdfs:Resource , rdf:Property ;
+rdfs:label  a               rdf:Property , rdfs:Resource ;
         rdfs:domain         rdfs:Resource ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  rdfs:label .
-
-ipc:Classification  a    rdfs:Class , rdfs:Resource , owl:Class ;
-        rdf:_64838       "Test3" ;
-        rdf:_64838       [ a  rdfs:Literal , rdfs:Resource , xsd:string ] ;
-        rdfs:comment     "An IPC classification."@en ;
-        rdfs:comment     [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] ;
-        rdfs:label       "Classification"@en ;
-        rdfs:label       [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] ;
-        rdfs:subClassOf  ipc:Classification , rdfs:Resource , <http://www.w3.org/2004/02/skos/core#Concept> .
 
 rdf:predicate  a            rdfs:Resource , rdf:Property ;
         rdfs:domain         rdf:Statement ;
         rdfs:range          rdfs:Resource ;
         rdfs:subPropertyOf  rdf:predicate .
+
+ANIMALS:species  a          rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf  ANIMALS:species .
 
 rdfs:subClassOf  a          rdf:Property , rdfs:Resource ;
         rdfs:domain         rdfs:Class ;
@@ -128,17 +123,16 @@ rdfs:subClassOf  a          rdf:Property , rdfs:Resource ;
 rdfs:Resource  a         rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdfs:Resource .
 
-<http://www.w3.org/2004/02/skos/core#notation>
-        a                   rdf:Property , rdfs:Resource ;
-        rdfs:subPropertyOf  <http://www.w3.org/2004/02/skos/core#notation> .
-
 rdf:rest  a                 rdfs:Resource , rdf:Property ;
         rdfs:domain         rdf:List ;
         rdfs:range          rdf:List ;
         rdfs:subPropertyOf  rdf:rest .
 
-rdf:_857  a                 rdfs:Resource , rdf:Property ;
-        rdfs:subPropertyOf  rdf:_857 .
+<http://www.some-fictitious-zoo.com/all-animals>
+        a       rdfs:Container , rdfs:Resource , rdf:Seq ;
+        rdf:_1  "Panthera leo"@lt ;
+        rdf:_1  _:b1 , <http://www.some-fictitious-zoo.com/mammals/lion> ;
+        rdf:_2  <http://www.some-fictitious-zoo.com/arachnids/tarantula> .
 
 rdf:value  a                rdfs:Resource , rdf:Property ;
         rdfs:domain         rdfs:Resource ;
@@ -156,20 +150,8 @@ rdfs:Class  a            rdfs:Class , rdfs:Resource ;
 rdfs:Datatype  a         rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdfs:Resource , rdfs:Datatype , rdfs:Class .
 
-rdf:_64838  a               rdfs:Resource , rdf:Property ;
-        rdfs:subPropertyOf  rdf:_64838 .
-
-ipc:symbol  a               rdf:Property , rdfs:Resource , owl:DatatypeProperty ;
-        rdf:_10             "Test1" ;
-        rdf:_10             [ a  rdfs:Literal , rdfs:Resource , xsd:string ] ;
-        rdfs:comment        "The property :symbol is a general purpose property that relates a resource to the notation for a node in the international patent classification (ipc) scheme"@en ;
-        rdfs:comment        [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] ;
-        rdfs:label          "symbol"@en ;
-        rdfs:label          [ a  rdfs:Literal , rdfs:Resource , rdf:langString ] ;
-        rdfs:subPropertyOf  ipc:symbol , <http://www.w3.org/2004/02/skos/core#notation> .
-
-rdf:_10  a                  rdfs:Resource , rdf:Property ;
-        rdfs:subPropertyOf  rdf:_10 .
+rdf:_2  a                   rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf  rdf:_2 .
 
 rdf:subject  a              rdfs:Resource , rdf:Property ;
         rdfs:domain         rdf:Statement ;
@@ -188,6 +170,12 @@ rdfs:seeAlso  a             rdf:Property , rdfs:Resource ;
 
 rdfs:Literal  a          rdfs:Class , rdfs:Resource ;
         rdfs:subClassOf  rdfs:Resource , rdfs:Literal .
+
+ANIMALS:name  a             rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf  ANIMALS:name .
+
+rdf:_1  a                   rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf  rdf:_1 .
 
 xsd:string  a            rdfs:Class , rdfs:Datatype , rdfs:Resource ;
         rdfs:subClassOf  xsd:string , rdfs:Resource , rdfs:Literal .
