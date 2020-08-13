@@ -56,7 +56,7 @@ public class Main {
 		final long startTime = System.nanoTime();
 		
 		//input file to be reasoned on
-		String ontologyFile = "";
+		String ontologyFile = "C:\\Users\\Brayden Pankaskie\\Desktop\\LabReasonerTesting\\data.ttl";
 		//text file containing rules and axioms
 		String ruleFile = "Rules.txt";
 		//output file used to trace triples that were added during reasoning
@@ -66,10 +66,10 @@ public class Main {
 		//output file used to store created graph from reasoning
 		String reasonedOntology = "reasonedOntology.txt";
 		
-		/*instances of classes used for parsing traced information and writing it to json if desired *not completely tested*
+		//instances of classes used for parsing traced information and writing it to json if desired
 	  	OutputParser op = new OutputParser();
 		OutputWriter ow = new OutputWriter();
-		*/
+		
 		
 		//create empty ont model
     	OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
@@ -79,19 +79,19 @@ public class Main {
     	
     	//write original ontology to a file converting it to turtle syntax
     	PrintWriter originalOut = new PrintWriter(originalOntologyPrint);    
-    	ontModel.write(originalOut, "TURTLE");
+    	//ontModel.write(originalOut, "TURTLE");
     	
     	//writes original ontology to console *only useful for small files*
     	//ontModel.write(System.out,"TURTLE");   
     	
     	//reason over and trace results
-    	reasonAndTrace(ontModel,ruleFile,traceFileName, reasonedOntology);
+    	InfModel infMod = reasonAndTrace(ontModel,ruleFile,traceFileName, reasonedOntology);
     	
     	//parse trace file and format triples into newList
     	//List<List> newList = parseTraceFile(op, traceFileName);
     	
-    	//write original KB and new triples to json
-    	//writeToJson(ontModel, op, ow, newList);
+    	//write graph created from reasoning to specialy formatted json file
+    	writeToJson(infMod, op, ow);
     		
     	//performance checking
     	final long duration = TimeUnit.SECONDS.convert(System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
@@ -105,7 +105,7 @@ public class Main {
 	 * @param traceFileName
 	 * @throws FileNotFoundException
 	 */
-	public static void reasonAndTrace(OntModel ontModel, String ruleFile, String traceFileName, String reasonedOntology) throws FileNotFoundException {
+	public static InfModel reasonAndTrace(OntModel ontModel, String ruleFile, String traceFileName, String reasonedOntology) throws FileNotFoundException {
 		
 		//register for custom method used in rule file
 		BuiltinRegistry.theRegistry.register(new Property_Check());
@@ -137,6 +137,8 @@ public class Main {
 //    	    }
 //    	} 
 //    	out.flush();
+    	
+    	return inf;
 	}
 	
 	/**
@@ -185,32 +187,19 @@ public class Main {
 	}
 	
 	/**
-	 * Method to take all the triples from the original KB and entailment triples and write them to json file
+	 * Method to take all the triples from graph created by reasoning over original graph and write them to json file in specific format
 	 * @param ontModel
 	 * @param op
 	 * @param ow
-	 * @param newList
 	 */
-	public static void writeToJson(OntModel ontModel, OutputParser op, OutputWriter ow, List<List> newList)  {
-    	
-    	//getting base model of triples and storing them in the triple class 
-    	Model base = ontModel.getBaseModel();
-    	
-    	//returns list of the base triples
-    	List masterList = op.getTripleArray(base);
-    	
-    	//getting the rest of the inferred triples and storing them in the masterList list with the base triples
-    	for (int i = 0; i < newList.size(); i++) {
-    		List l = newList.get(i);
-    		for (int j = 0; j < l.size(); j++) {
-				masterList.add(l.get(j));
-			}
-		}
-    	
-    	//instance of Triple class for the JsonFileContent class
-    	String[] tripleArray = (String[]) masterList.toArray(new String[masterList.size()]);
-    	
-    	//Jena method which gets prefixes from ontology
+	public static void writeToJson(InfModel ontModel, OutputParser op, OutputWriter ow)  {
+
+		List masterList = op.getTripleArray(ontModel);
+		
+		//instance of Triple class for the JsonFileContent class
+		String[] tripleArray = (String[]) masterList.toArray(new String[masterList.size()]);
+		
+		//Jena method which gets prefixes from ontology
     	Map<String,String> map = ontModel.getNsPrefixMap();
     	
     	//Jena method to get the name of the ontology
@@ -220,25 +209,57 @@ public class Main {
     	JsonFileContent jsonFileContent = new JsonFileContent(ontName,map,tripleArray);
     	
     	ow.writeToJSON(jsonFileContent);
- 
-/*
-    	//stuff for json file more suited for Brayden
-    	List<Triple> tl = new ArrayList<Triple>();
-    	
-    	//getting base model of triples and storing them in the triple class 
-    	Model base = ontModel.getBaseModel();
-    	String[] strArr1 = op.getTripleArray(base);
-    	Triple t = new Triple(strArr1);
-    	tl.add(t);
-    	
-    	//storing the rest of the inferred triples and storing them in the triple class
-    	for (int i = 0; i < newList.size(); i++) {
-    		List l = newList.get(i);
-    		String[] strArr2 = (String[]) l.toArray(new String[l.size()]);
-    		t = new Triple(strArr2);
-    		tl.add(t);
-		}
-*/
 	}
+	
+//	public static void writeToJsonModified(OntModel ontModel, OutputParser op, OutputWriter ow, List<List> newList)  {
+//    	
+//    	//getting base model of triples and storing them in the triple class 
+//    	Model base = ontModel.getBaseModel();
+//    	
+//    	//returns list of the base triples
+//    	List masterList = op.getTripleArray(base);
+// 
+//
+//    	//getting the rest of the inferred triples and storing them in the masterList list with the base triples
+//    	for (int i = 0; i < newList.size(); i++) {
+//    		List l = newList.get(i);
+//    		for (int j = 0; j < l.size(); j++) {
+//				masterList.add(l.get(j));
+//			}
+//		}
+//    	
+//    	//instance of Triple class for the JsonFileContent class
+//    	String[] tripleArray = (String[]) masterList.toArray(new String[masterList.size()]);
+//    	
+//    	//Jena method which gets prefixes from ontology
+//    	Map<String,String> map = ontModel.getNsPrefixMap();
+//    	
+//    	//Jena method to get the name of the ontology
+//    	String ontName = ontModel.getNsPrefixURI("");
+//    	
+//    	//creates instance of the class used in writing to Json file
+//    	JsonFileContent jsonFileContent = new JsonFileContent(ontName,map,tripleArray);
+//    	
+//    	ow.writeToJSON(jsonFileContent);
+// 
+//
+//    	//stuff for json file more suited for Brayden
+//    	List<Triple> tl = new ArrayList<Triple>();
+//    	
+//    	//getting base model of triples and storing them in the triple class 
+//    	Model base = ontModel.getBaseModel();
+//    	String[] strArr1 = op.getTripleArray(base);
+//    	Triple t = new Triple(strArr1);
+//    	tl.add(t);
+//    	
+//    	//storing the rest of the inferred triples and storing them in the triple class
+//    	for (int i = 0; i < newList.size(); i++) {
+//    		List l = newList.get(i);
+//    		String[] strArr2 = (String[]) l.toArray(new String[l.size()]);
+//    		t = new Triple(strArr2);
+//    		tl.add(t);
+//		}
+//
+//	}
 
 }//end class

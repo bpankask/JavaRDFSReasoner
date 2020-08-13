@@ -44,7 +44,7 @@ public class OutputParser {
 			
 			list.add(sb.toString());
 			
-			//in case you need to distinguish resource from literal
+//in case you need to distinguish resource from literal
 //			if (object instanceof Resource) {
 //				
 //			} else {
