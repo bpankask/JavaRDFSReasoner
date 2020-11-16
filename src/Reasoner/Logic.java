@@ -1,8 +1,6 @@
 package Reasoner;
 
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +8,6 @@ import java.util.Random;
 
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.rdf.model.InfModel;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.rulesys.BuiltinRegistry;
@@ -87,7 +84,7 @@ public class Logic {
                                          List<String> correctTriples, List<String> invalidTriples, int n){
 
         //create list of subjects and objects available to pick at random
-        List<String> list = new ArrayList(Arrays.asList(allSubjects));
+        List<String> list = new ArrayList<String>(Arrays.asList(allSubjects));
         list.addAll(Arrays.asList(allObjects));
         String[] allSubAndObj = list.toArray(new String[list.size()]);
 

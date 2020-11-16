@@ -1,16 +1,8 @@
 package JSONHandler;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.SerializableString;
-import com.fasterxml.jackson.core.io.CharacterEscapes;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import org.apache.jena.rdf.model.*;
-
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Map;
 
 public abstract class JsonWriter {
@@ -28,7 +20,7 @@ public abstract class JsonWriter {
             ObjectMapper mapper = new ObjectMapper();
             mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
 
-            ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+            //ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
 
             // convert book object to JSON file
             mapper.writeValue(Paths.get(fileName).toFile(), jsonFileContent);

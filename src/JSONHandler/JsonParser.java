@@ -3,7 +3,6 @@ package JSONHandler;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,9 +62,9 @@ public class JsonParser {
      */
     public void parseJsonAndPopulate(File file) throws IOException {
 
-        List<String> sub = new ArrayList<>();
-        List<String> pred = new ArrayList<>();
-        List<String> obj = new ArrayList<>();
+        List<String> sub = new ArrayList<String>();
+        List<String> pred = new ArrayList<String>();
+        List<String> obj = new ArrayList<String>();
 
         ObjectMapper mapper = new ObjectMapper();
 
