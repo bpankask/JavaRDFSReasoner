@@ -3,4 +3,5 @@
 /out/
 .settings
 .idea
-
+.classpath
+.project
