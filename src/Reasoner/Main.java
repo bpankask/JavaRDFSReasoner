@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args){
 
-		for(File file : getFiles("json")) {
+    	for(File file : new File("json").listFiles()) {
 
             //create empty ont model
             OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
@@ -57,15 +57,4 @@ public class Main {
         }//end for loop
 
     }//end main
-
-    /**
-     * Gets files in specified folder
-     * @param folderName
-     * @return
-     */
-    public static File[] getFiles(String folderName) {
-        File folder = new File(folderName);
-        File[] files = folder.listFiles();
-        return files;
-    }
 }
