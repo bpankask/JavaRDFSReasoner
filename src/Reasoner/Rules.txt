@@ -1,0 +1,99 @@
+//All rules taken from official w3c website -- https://www.w3.org/TR/rdf11-mt/#entailment-rules-informative.
+
+//-----------------------------RDF axiomatic triples--------------------------------
+//-> (rdf:type rdf:type rdf:Property) .
+//-> (rdf:subject rdf:type rdf:Property) .
+//-> (rdf:predicate rdf:type rdf:Property) .
+//-> (rdf:object rdf:type rdf:Property) .
+//-> (rdf:first rdf:type rdf:Property) .
+//-> (rdf:rest rdf:type rdf:Property) .
+//-> (rdf:value rdf:type rdf:Property) .
+//-> (rdf:nil rdf:type rdf:List) .
+
+//-----------------------------RDFS axiomatic triples--------------------------------
+//-> (rdf:type rdfs:domain rdfs:Resource) .
+//-> (rdfs:domain rdfs:domain rdf:Property) .
+//-> (rdfs:range rdfs:domain rdf:Property) .
+//-> (rdfs:subPropertyOf rdfs:domain rdf:Property) .
+//-> (rdfs:subClassOf rdfs:domain rdfs:Class) .
+//-> (rdf:subject rdfs:domain rdf:Statement) .
+//-> (rdf:predicate rdfs:domain rdf:Statement) .
+//-> (rdf:object rdfs:domain rdf:Statement) .
+//-> (rdfs:member rdfs:domain rdfs:Resource) .
+//-> (rdf:first rdfs:domain rdf:List) .
+//-> (rdf:rest rdfs:domain rdf:List) .
+//-> (rdfs:seeAlso rdfs:domain rdfs:Resource) .
+//-> (rdfs:isDefinedBy rdfs:domain rdfs:Resource) .
+//-> (rdfs:comment rdfs:domain rdfs:Resource) .
+//-> (rdfs:label rdfs:domain rdfs:Resource) .
+//-> (rdf:value rdfs:domain rdfs:Resource) .
+
+//-> (rdf:type rdfs:range rdfs:Class) .
+//-> (rdfs:domain rdfs:range rdfs:Class) .
+//-> (rdfs:range rdfs:range rdfs:Class) .
+//-> (rdfs:subPropertyOf rdfs:range rdf:Property) .
+//-> (rdfs:subClassOf rdfs:range rdfs:Class) .
+//-> (rdf:subject rdfs:range rdfs:Resource) .
+//-> (rdf:predicate rdfs:range rdfs:Resource) .
+//-> (rdf:object rdfs:range rdfs:Resource) .
+//-> (rdfs:member rdfs:range rdfs:Resource) .
+//-> (rdf:first rdfs:range rdfs:Resource) .
+//-> (rdf:rest rdfs:range rdf:List) .
+//-> (rdfs:seeAlso rdfs:range rdfs:Resource) .
+//-> (rdfs:isDefinedBy rdfs:range rdfs:Resource) .
+//-> (rdfs:comment rdfs:range rdfs:Literal) .
+//-> (rdfs:label rdfs:range rdfs:Literal) .
+//-> (rdf:value rdfs:range rdfs:Resource) .
+
+//-> (rdf:Alt rdfs:subClassOf rdfs:Container) .
+//-> (rdf:Bag rdfs:subClassOf rdfs:Container) .
+//-> (rdf:Seq rdfs:subClassOf rdfs:Container) .
+//-> (rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property) .
+
+//-> (rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso) .
+
+//-> (rdfs:Datatype rdfs:subClassOf rdfs:Class) .
+
+//container membership axiomatic triples
+//[rdf_container: (?u ?a ?x), propertyCheck(?a) -> (?a rdf:type rdf:Property), (?a rdf:type rdfs:ContainerMembershipProperty), (?a rdfs:range rdfs:Resource), (?a rdfs:domain rdfs:Resource)]
+
+//-----------------------------RDF/Simple Entailment Rules------------------------------
+//[rdfD1Altered: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+//[rdfD1Altered: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?x, ?a, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,xsd:string), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type xsd:string)]
+//[rdfD1: (?x ?a ?l), isLiteral(?l), isDType(?l,rdf:langString), makeSkolem(?b, ?l) -> (?x ?a ?b), (?b rdf:type rdf:langString)]
+
+//[rdfD2: (?u ?a ?y) -> (?a rdf:type rdf:Property)]
+
+//-----------------------------RDFS Entailment Rules-----------------------------
+//-> ( xsd:string  rdf:type rdfs:Datatype ) .
+//-> ( rdf:langString  rdf:type rdfs:Datatype ) . 
+  
+[rdfs2: (?a rdfs:domain ?x), (?u ?a ?y) -> (?u rdf:type ?x)]
+
+[rdfs3: (?a rdfs:range ?x), ( ?u ?a ?v) -> ( ?v rdf:type ?x)]
+
+//[rdfs4a: (?u ?a ?x) -> (?u rdf:type rdfs:Resource)]
+
+//[rdfs4b: (?u ?a ?v) -> ( ?v rdf:type rdfs:Resource)]
+
+[rdfs5: (?u rdfs:subPropertyOf ?v), (?v rdfs:subPropertyOf ?x) -> (?u rdfs:subPropertyOf ?x)]
+
+//[rdfs6: (?u rdf:type rdf:Property) -> (?u rdfs:subPropertyOf ?u)]
+
+[rdfs7: (?a rdfs:subPropertyOf ?b), (?u ?a ?y) -> (?u ?b ?y)]
+
+//[rdfs8: (?u rdf:type rdfs:Class) -> (?u rdfs:subClassOf rdfs:Resource)]
+
+[rdfs9: (?u rdfs:subClassOf ?x), (?v rdf:type ?u) -> (?v rdf:type ?x)]
+
+//[rdfs10: (?u rdf:type rdfs:Class) -> (?u rdfs:subClassOf ?u)]
+
+[rdfs11: (?u rdfs:subClassOf ?v), (?v rdfs:subClassOf ?x) -> (?u rdfs:subClassOf ?x)]
+
+//[rdfs12: (?u rdf:type rdfs:ContainerMembershipProperty) -> (?u rdfs:subPropertyOf rdfs:member)]
+
+//[rdfs13: (?u rdf:type rdfs:Datatype) -> (?u rdfs:subClassOf rdfs:Literal)]
+
+//generalized rule
+//[GrdfD1: (?x ?a ?l), isLiteral(?l), testGrdfD1(?l) -> ]
